@@ -1,0 +1,7 @@
+{
+  "name": "soterlabs-landing",
+  "private": true,
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soter Labs — Managed Governance Operations</title>
+  <meta name="description" content="Soter Labs runs governance operations for on-chain organizations. Biweekly spell cycles, capital monitoring, Atlas compliance, and deployment coordination — handled end to end across the Sky ecosystem.">
+  <meta property="og:title" content="Operations, handled. — Soter Labs">
+  <meta property="og:description" content="Managed governance services for on-chain organizations. 19 organizations. 64 active projects. Sky ecosystem.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soterlabs.com/">
+  <link rel="canonical" href="https://soterlabs.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-midnight-navy: #0D1B2A;
+      --color-cool-white: #F5F7FA;
+      --color-aegean: #2D5C8A;
+      --color-dusk: #1A3654;
+      --color-horizon: #6097C4;
+
+      --color-surface-default: #FFFFFF;
+      --color-surface-muted: #F5F7FA;
+      --color-text-primary: #0D1B2A;
+      --color-text-secondary: #224870;
+      --color-text-muted: #6A8496;
+      --color-text-link: #2D5C8A;
+      --color-border-subtle: #CDDAE3;
+      --color-interactive: #2D5C8A;
+
+      --color-surface-dark: #0D1B2A;
+      --color-surface-dark-muted: #1A3654;
+      --color-text-on-dark: #F5F7FA;
+      --color-text-on-dark-muted: #8CBADB;
+      --color-border-on-dark: #224870;
+
+      --font-heading: 'Space Grotesk', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-24: 96px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--color-text-primary);
+      background: var(--color-surface-default);
+    }
+
+    /* ── Nav ── */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--color-surface-dark);
+      border-bottom: 1px solid var(--color-border-on-dark);
+    }
+
+    .nav__inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__wordmark {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-on-dark);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      list-style: none;
+    }
+
+    .nav__link {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-on-dark-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav__link:hover {
+      color: var(--color-text-on-dark);
+    }
+
+    .nav__cta {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-cool-white);
+      background: var(--color-aegean);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-4);
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+
+    .nav__cta:hover {
+      background: var(--color-text-secondary);
+    }
+
+    .nav__mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-2);
+    }
+
+    .nav__mobile-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--color-text-on-dark);
+      margin: 4px 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* ── Hero ── */
+
+    .hero {
+      background: var(--color-surface-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-24) var(--space-6);
+      padding-top: calc(var(--space-24) + 64px);
+    }
+
+    .hero__content {
+      max-width: 720px;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(40px, 7vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(16px, 2.5vw, 18px);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: var(--space-12);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-cool-white);
+      background: var(--color-aegean);
+      text-decoration: none;
+      padding: 14px var(--space-8);
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--color-text-secondary);
+    }
+
+    /* ── Sections ── */
+
+    .section {
+      padding: var(--space-24) var(--space-6);
+    }
+
+    .section--muted {
+      background: var(--color-surface-muted);
+    }
+
+    .section--dark {
+      background: var(--color-surface-dark);
+      color: var(--color-text-on-dark);
+    }
+
+    .section__inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section__label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-12);
+    }
+
+    .section--dark .section__label {
+      color: var(--color-text-on-dark-muted);
+    }
+
+    /* ── Services ── */
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .service-card {
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 4px;
+      padding: var(--space-8);
+    }
+
+    .service-card__title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    .service-card__body {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--color-text-secondary);
+    }
+
+    /* ── Trust Strip ── */
+
+    .trust {
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+      background: var(--color-surface-muted);
+    }
+
+    .trust__inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .trust__stats {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+
+    .trust__stats span {
+      color: var(--color-aegean);
+    }
+
+    .trust__clients {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── About ── */
+
+    .about__body {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-8);
+    }
+
+    .about__cta {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-aegean);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .about__cta:hover {
+      color: var(--color-text-secondary);
+    }
+
+    /* ── Contact ── */
+
+    .contact__content {
+      max-width: 520px;
+    }
+
+    .contact__title {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-6);
+    }
+
+    .contact__body {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: var(--space-8);
+    }
+
+    /* ── Footer ── */
+
+    .footer {
+      background: var(--color-surface-dark);
+      border-top: 1px solid var(--color-border-on-dark);
+      padding: var(--space-12) var(--space-6);
+    }
+
+    .footer__inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer__brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .footer__wordmark {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-on-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .footer__tagline {
+      font-size: 14px;
+      color: var(--color-text-on-dark-muted);
+    }
+
+    .footer__links {
+      display: flex;
+      gap: var(--space-6);
+      list-style: none;
+    }
+
+    .footer__link {
+      font-size: 14px;
+      color: var(--color-text-on-dark-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer__link:hover {
+      color: var(--color-text-on-dark);
+    }
+
+    /* ── Animations ── */
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    .hero .fade-in:nth-child(2) { transition-delay: 0.25s; }
+    .hero .fade-in:nth-child(3) { transition-delay: 0.4s; }
+
+    .hero.loaded .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--color-surface-dark);
+        border-bottom: 1px solid var(--color-border-on-dark);
+        flex-direction: column;
+        padding: var(--space-6);
+        gap: var(--space-6);
+      }
+
+      .nav__links.open {
+        display: flex;
+      }
+
+      .nav__mobile-toggle {
+        display: block;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding-top: calc(var(--space-16) + 64px);
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      .footer__inner {
+        flex-direction: column;
+        gap: var(--space-6);
+        text-align: center;
+      }
+
+      .section {
+        padding: var(--space-16) var(--space-6);
+      }
+
+      .trust {
+        padding: var(--space-12) var(--space-6);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__wordmark">Soter Labs</a>
+      <button class="nav__mobile-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav__links').classList.toggle('open')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li><a href="#contact" class="nav__cta">Get in touch &rarr;</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <h1 class="hero__title fade-in">Operations, handled.</h1>
+      <p class="hero__subtitle fade-in">Managed governance services for on-chain organizations.</p>
+      <div class="fade-in">
+        <a href="#contact" class="btn">Get in touch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section__inner">
+      <p class="section__label fade-in">What we do</p>
+      <div class="services__grid">
+        <div class="service-card fade-in">
+          <h3 class="service-card__title">Managed Governance Operations</h3>
+          <p class="service-card__body">Biweekly spell cycles, capital monitoring, Atlas compliance, deployment coordination — handled end to end.</p>
+        </div>
+        <div class="service-card fade-in">
+          <h3 class="service-card__title">Agent Incubation</h3>
+          <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go-live.</p>
+        </div>
+        <div class="service-card fade-in">
+          <h3 class="service-card__title">Strategy & Org Design</h3>
+          <p class="service-card__body">Roadmap planning and cross-entity coordination for on-chain organizations navigating structural change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <section class="trust">
+    <div class="trust__inner fade-in">
+      <p class="trust__stats"><span>19</span> organizations · <span>64</span> active projects · Sky ecosystem</p>
+      <p class="trust__clients">Spark · Grove · Skybase · Keel · Obex · Prysm</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section__inner">
+      <p class="section__label fade-in">Who we are</p>
+      <p class="about__body fade-in">Soter Labs is the managed operations layer for on-chain organizations — handling governance cycles, capital monitoring, deployment coordination, and agent incubation across the Sky ecosystem. Our team evolved from MakerDAO's former governance core units and operates Ozone and Amatsu, the two Genesis Executor Agents. When execution can't fail, organizations hire Soter Labs.</p>
+      <a href="#services" class="about__cta fade-in">See how we work &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--dark" id="contact">
+    <div class="section__inner">
+      <div class="contact__content fade-in">
+        <h2 class="contact__title">Get in touch</h2>
+        <p class="contact__body">Tell us about your organization and what you're navigating. We'll respond within one business day.</p>
+        <a href="mailto:contact@soterlabs.com" class="btn">contact@soterlabs.com &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__wordmark">Soter Labs</span>
+        <span class="footer__tagline">Managed governance operations for on-chain organizations.</span>
+      </div>
+      <ul class="footer__links">
+        <li><a href="#services" class="footer__link">Services</a></li>
+        <li><a href="#about" class="footer__link">About</a></li>
+        <li><a href="#contact" class="footer__link">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Hero load animation
+    window.addEventListener('load', function () {
+      document.querySelector('.hero').classList.add('loaded');
+    });
+
+    // Intersection Observer for scroll fade-in
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in:not(.hero .fade-in)').forEach(function (el) {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
