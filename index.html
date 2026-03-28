@@ -12,11 +12,9 @@
   <link rel="canonical" href="https://soterlabs.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -29,24 +27,15 @@
       --color-dusk: #1A3654;
       --color-horizon: #6097C4;
 
-      --color-surface-default: #FFFFFF;
-      --color-surface-muted: #F5F7FA;
-      --color-text-primary: #0D1B2A;
-      --color-text-secondary: #224870;
-      --color-text-muted: #6A8496;
-      --color-text-link: #2D5C8A;
-      --color-border-subtle: #CDDAE3;
-      --color-interactive: #2D5C8A;
-
       --color-surface-dark: #0D1B2A;
       --color-surface-dark-muted: #1A3654;
       --color-text-on-dark: #F5F7FA;
       --color-text-on-dark-muted: #8CBADB;
       --color-border-on-dark: #224870;
+      --color-text-muted: #6A8496;
 
       --font-heading: 'Space Grotesk', 'Inter', 'Helvetica Neue', Arial, sans-serif;
       --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
 
       --space-1: 4px;
       --space-2: 8px;
@@ -54,7 +43,6 @@
       --space-4: 16px;
       --space-6: 24px;
       --space-8: 32px;
-      --space-10: 40px;
       --space-12: 48px;
       --space-16: 64px;
       --space-24: 96px;
@@ -70,8 +58,9 @@
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.65;
-      color: var(--color-text-primary);
-      background: var(--color-surface-default);
+      color: var(--color-text-on-dark);
+      background: #060d16;
+      overflow-x: hidden;
     }
 
     /* ── Nav ── */
@@ -82,14 +71,16 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: var(--color-surface-dark);
-      border-bottom: 1px solid var(--color-border-on-dark);
+      background: rgba(6, 13, 22, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(34, 72, 112, 0.3);
     }
 
     .nav__inner {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 var(--space-6);
+      padding: 0 var(--space-8);
       height: 64px;
       display: flex;
       align-items: center;
@@ -102,7 +93,13 @@
       font-weight: 700;
       color: var(--color-text-on-dark);
       text-decoration: none;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav__wordmark span {
+      font-weight: 400;
+      color: var(--color-text-on-dark-muted);
     }
 
     .nav__links {
@@ -130,15 +127,17 @@
       font-size: 14px;
       font-weight: 500;
       color: var(--color-cool-white);
-      background: var(--color-aegean);
+      background: rgba(45, 92, 138, 0.5);
+      border: 1px solid rgba(96, 151, 196, 0.3);
       text-decoration: none;
       padding: var(--space-2) var(--space-4);
       border-radius: 4px;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .nav__cta:hover {
-      background: var(--color-text-secondary);
+      background: rgba(45, 92, 138, 0.8);
+      border-color: rgba(96, 151, 196, 0.5);
     }
 
     .nav__mobile-toggle {
@@ -161,78 +160,321 @@
     /* ── Hero ── */
 
     .hero {
-      background: var(--color-surface-dark);
+      position: relative;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: var(--space-24) var(--space-6);
+      padding: var(--space-24) var(--space-8);
       padding-top: calc(var(--space-24) + 64px);
+      overflow: hidden;
+    }
+
+    /* Shield visual */
+    .hero__shield-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      width: 520px;
+      height: 600px;
+      pointer-events: none;
+      z-index: 0;
+      perspective: 900px;
+    }
+
+    /* Ambient glow behind shield */
+    .hero__shield-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45, 92, 138, 0.25) 0%, rgba(26, 54, 84, 0.1) 40%, transparent 70%);
+      filter: blur(60px);
+    }
+
+    .hero__shield-glow-accent {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96, 151, 196, 0.15) 0%, transparent 70%);
+      filter: blur(30px);
+    }
+
+    /* The shield SVG */
+    .hero__shield-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 380px;
+    }
+
+    /* Glass surface on the shield */
+    .hero__shield-glass {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 380px;
+      overflow: hidden;
+    }
+
+    .hero__shield-glass svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Specular highlight */
+    .hero__shield-specular {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      width: 55%;
+      height: 40%;
+      background: linear-gradient(165deg, rgba(140, 186, 219, 0.12) 0%, rgba(140, 186, 219, 0.03) 40%, transparent 70%);
+      border-radius: 50%;
+      transform: rotate(-10deg);
+      filter: blur(8px);
+    }
+
+    /* Orbital rings */
+    .hero__ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      border: 1px solid rgba(96, 151, 196, 0.1);
+      transform-style: preserve-3d;
+    }
+
+    .hero__ring--1 {
+      width: 440px;
+      height: 440px;
+      margin-top: -220px;
+      margin-left: -220px;
+      transform: rotateX(68deg) rotateZ(-15deg);
+      border-color: rgba(96, 151, 196, 0.1);
+      animation: ring-rotate-1 30s linear infinite;
+    }
+
+    .hero__ring--2 {
+      width: 390px;
+      height: 390px;
+      margin-top: -195px;
+      margin-left: -195px;
+      transform: rotateX(62deg) rotateZ(25deg);
+      border-color: rgba(96, 151, 196, 0.07);
+      animation: ring-rotate-2 40s linear infinite;
+    }
+
+    .hero__ring--3 {
+      width: 480px;
+      height: 480px;
+      margin-top: -240px;
+      margin-left: -240px;
+      transform: rotateX(72deg) rotateZ(-40deg);
+      border-color: rgba(96, 151, 196, 0.05);
+      animation: ring-rotate-3 50s linear infinite;
+    }
+
+    /* Ring light dots */
+    .hero__ring--1::before,
+    .hero__ring--2::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(96, 151, 196, 0.4);
+      box-shadow: 0 0 8px rgba(96, 151, 196, 0.3);
+    }
+
+    .hero__ring--1::before {
+      top: -2px;
+      left: 50%;
+    }
+
+    .hero__ring--2::before {
+      bottom: -2px;
+      right: 25%;
+    }
+
+    @keyframes ring-rotate-1 {
+      from { transform: rotateX(68deg) rotateZ(-15deg); }
+      to { transform: rotateX(68deg) rotateZ(345deg); }
+    }
+
+    @keyframes ring-rotate-2 {
+      from { transform: rotateX(62deg) rotateZ(25deg); }
+      to { transform: rotateX(62deg) rotateZ(385deg); }
+    }
+
+    @keyframes ring-rotate-3 {
+      from { transform: rotateX(72deg) rotateZ(-40deg); }
+      to { transform: rotateX(72deg) rotateZ(320deg); }
+    }
+
+    /* Floating particles */
+    .hero__particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: rgba(96, 151, 196, 0.35);
+      box-shadow: 0 0 6px rgba(96, 151, 196, 0.2);
+    }
+
+    .hero__particle--1 { top: 25%; left: 18%; animation: float-1 6s ease-in-out infinite; }
+    .hero__particle--2 { top: 35%; right: 15%; animation: float-2 8s ease-in-out infinite; width: 3px; height: 3px; }
+    .hero__particle--3 { bottom: 30%; left: 22%; animation: float-3 7s ease-in-out infinite; }
+    .hero__particle--4 { top: 20%; right: 28%; animation: float-1 9s ease-in-out infinite; width: 1.5px; height: 1.5px; }
+    .hero__particle--5 { bottom: 25%; right: 20%; animation: float-2 5s ease-in-out infinite; }
+
+    @keyframes float-1 {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+      50% { transform: translateY(-12px) translateX(6px); opacity: 0.8; }
+    }
+
+    @keyframes float-2 {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+      50% { transform: translateY(10px) translateX(-8px); opacity: 0.7; }
+    }
+
+    @keyframes float-3 {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.5; }
+      50% { transform: translateY(-8px) translateX(-5px); opacity: 0.9; }
+    }
+
+    /* Ambient background effects */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(13, 27, 42, 0) 0%, #060d16 70%),
+        radial-gradient(circle at 50% 50%, rgba(26, 54, 84, 0.15) 0%, transparent 50%);
+      z-index: 1;
     }
 
     .hero__content {
+      position: relative;
+      z-index: 2;
       max-width: 720px;
       text-align: center;
     }
 
-    .hero__title {
+    .hero__label {
       font-family: var(--font-heading);
-      font-size: clamp(40px, 7vw, 60px);
+      font-size: clamp(36px, 6vw, 56px);
       font-weight: 700;
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--color-text-on-dark);
       margin-bottom: var(--space-6);
     }
 
     .hero__subtitle {
-      font-family: var(--font-body);
-      font-size: clamp(16px, 2.5vw, 18px);
-      font-weight: 400;
-      line-height: 1.65;
+      font-family: var(--font-heading);
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 500;
+      line-height: 1.35;
       color: var(--color-text-on-dark-muted);
       margin-bottom: var(--space-12);
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
+      letter-spacing: -0.01em;
     }
 
-    .btn {
+    .hero__cta {
       display: inline-block;
       font-family: var(--font-body);
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 500;
-      color: var(--color-cool-white);
-      background: var(--color-aegean);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-on-dark);
       text-decoration: none;
-      padding: 14px var(--space-8);
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s ease;
+      padding: 14px 36px;
+      border: 1px solid rgba(140, 186, 219, 0.3);
+      border-radius: 2px;
+      background: rgba(13, 27, 42, 0.4);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
     }
 
-    .btn:hover {
-      background: var(--color-text-secondary);
+    .hero__cta:hover {
+      background: rgba(45, 92, 138, 0.3);
+      border-color: rgba(140, 186, 219, 0.5);
+    }
+
+    /* ── Cards ── */
+
+    .cards {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+      margin-top: -80px;
+    }
+
+    .cards__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+
+    .card {
+      background: rgba(13, 27, 42, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(96, 151, 196, 0.1);
+      border-radius: 8px;
+      padding: var(--space-8);
+      transition: border-color 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(96, 151, 196, 0.25);
+    }
+
+    .card__title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-4);
+    }
+
+    .card__body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--color-text-on-dark-muted);
     }
 
     /* ── Sections ── */
 
     .section {
-      padding: var(--space-24) var(--space-6);
-    }
-
-    .section--muted {
-      background: var(--color-surface-muted);
-    }
-
-    .section--dark {
-      background: var(--color-surface-dark);
-      color: var(--color-text-on-dark);
+      padding: var(--space-24) var(--space-8);
     }
 
     .section__inner {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -242,15 +484,15 @@
       font-weight: 500;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--color-text-muted);
+      color: var(--color-text-on-dark-muted);
       margin-bottom: var(--space-12);
     }
 
-    .section--dark .section__label {
-      color: var(--color-text-on-dark-muted);
-    }
-
     /* ── Services ── */
+
+    .services {
+      padding-top: var(--space-24);
+    }
 
     .services__grid {
       display: grid;
@@ -259,9 +501,15 @@
     }
 
     .service-card {
-      border: 1px solid var(--color-border-subtle);
-      border-radius: 4px;
+      border: 1px solid rgba(96, 151, 196, 0.1);
+      border-radius: 8px;
       padding: var(--space-8);
+      background: rgba(13, 27, 42, 0.3);
+      transition: border-color 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(96, 151, 196, 0.25);
     }
 
     .service-card__title {
@@ -269,26 +517,27 @@
       font-size: 20px;
       font-weight: 600;
       line-height: 1.25;
-      color: var(--color-text-primary);
+      color: var(--color-text-on-dark);
       margin-bottom: var(--space-4);
     }
 
     .service-card__body {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.65;
-      color: var(--color-text-secondary);
+      color: var(--color-text-on-dark-muted);
     }
 
     /* ── Trust Strip ── */
 
     .trust {
       text-align: center;
-      padding: var(--space-16) var(--space-6);
-      background: var(--color-surface-muted);
+      padding: var(--space-16) var(--space-8);
+      border-top: 1px solid rgba(96, 151, 196, 0.08);
+      border-bottom: 1px solid rgba(96, 151, 196, 0.08);
     }
 
     .trust__inner {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -296,12 +545,12 @@
       font-family: var(--font-heading);
       font-size: 18px;
       font-weight: 600;
-      color: var(--color-text-primary);
+      color: var(--color-text-on-dark);
       margin-bottom: var(--space-6);
     }
 
     .trust__stats span {
-      color: var(--color-aegean);
+      color: var(--color-horizon);
     }
 
     .trust__clients {
@@ -318,7 +567,7 @@
       max-width: 680px;
       font-size: 18px;
       line-height: 1.65;
-      color: var(--color-text-secondary);
+      color: var(--color-text-on-dark-muted);
       margin-bottom: var(--space-8);
     }
 
@@ -326,16 +575,20 @@
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 500;
-      color: var(--color-aegean);
+      color: var(--color-horizon);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     .about__cta:hover {
-      color: var(--color-text-secondary);
+      color: var(--color-text-on-dark);
     }
 
     /* ── Contact ── */
+
+    .contact {
+      border-top: 1px solid rgba(96, 151, 196, 0.08);
+    }
 
     .contact__content {
       max-width: 520px;
@@ -357,39 +610,43 @@
       margin-bottom: var(--space-8);
     }
 
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-cool-white);
+      background: var(--color-aegean);
+      text-decoration: none;
+      padding: 14px var(--space-8);
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #3a6f9e;
+    }
+
     /* ── Footer ── */
 
     .footer {
-      background: var(--color-surface-dark);
-      border-top: 1px solid var(--color-border-on-dark);
-      padding: var(--space-12) var(--space-6);
+      border-top: 1px solid rgba(96, 151, 196, 0.08);
+      padding: var(--space-8) var(--space-8);
     }
 
     .footer__inner {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .footer__brand {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-
-    .footer__wordmark {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--color-text-on-dark);
-      letter-spacing: -0.01em;
-    }
-
-    .footer__tagline {
-      font-size: 14px;
-      color: var(--color-text-on-dark-muted);
+    .footer__copy {
+      font-size: 13px;
+      color: var(--color-text-muted);
     }
 
     .footer__links {
@@ -399,8 +656,8 @@
     }
 
     .footer__link {
-      font-size: 14px;
-      color: var(--color-text-on-dark-muted);
+      font-size: 13px;
+      color: var(--color-text-muted);
       text-decoration: none;
       transition: color 0.2s ease;
     }
@@ -413,8 +670,8 @@
 
     .fade-in {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .fade-in.visible {
@@ -424,16 +681,25 @@
 
     .hero .fade-in {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px);
     }
 
-    .hero .fade-in:nth-child(1) { transition-delay: 0.1s; }
-    .hero .fade-in:nth-child(2) { transition-delay: 0.25s; }
-    .hero .fade-in:nth-child(3) { transition-delay: 0.4s; }
+    .hero .fade-in:nth-child(1) { transition-delay: 0.15s; }
+    .hero .fade-in:nth-child(2) { transition-delay: 0.3s; }
+    .hero .fade-in:nth-child(3) { transition-delay: 0.45s; }
 
     .hero.loaded .fade-in {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .hero__shield-wrap {
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .hero.loaded .hero__shield-wrap {
+      opacity: 1;
     }
 
     /* ── Responsive ── */
@@ -445,8 +711,9 @@
         top: 64px;
         left: 0;
         right: 0;
-        background: var(--color-surface-dark);
-        border-bottom: 1px solid var(--color-border-on-dark);
+        background: rgba(6, 13, 22, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(34, 72, 112, 0.3);
         flex-direction: column;
         padding: var(--space-6);
         gap: var(--space-6);
@@ -461,8 +728,31 @@
       }
 
       .hero {
-        min-height: 80vh;
+        min-height: 85vh;
         padding-top: calc(var(--space-16) + 64px);
+      }
+
+      .hero__shield-wrap {
+        width: 340px;
+        height: 400px;
+      }
+
+      .hero__shield-svg,
+      .hero__shield-glass {
+        width: 220px;
+        height: 260px;
+      }
+
+      .hero__ring--1 { width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; }
+      .hero__ring--2 { width: 260px; height: 260px; margin-top: -130px; margin-left: -130px; }
+      .hero__ring--3 { width: 330px; height: 330px; margin-top: -165px; margin-left: -165px; }
+
+      .cards {
+        margin-top: -40px;
+      }
+
+      .cards__grid {
+        grid-template-columns: 1fr;
       }
 
       .services__grid {
@@ -470,14 +760,14 @@
         gap: var(--space-4);
       }
 
+      .section {
+        padding: var(--space-16) var(--space-6);
+      }
+
       .footer__inner {
         flex-direction: column;
         gap: var(--space-6);
         text-align: center;
-      }
-
-      .section {
-        padding: var(--space-16) var(--space-6);
       }
 
       .trust {
@@ -491,7 +781,7 @@
   <!-- Nav -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__wordmark">Soter Labs</a>
+      <a href="/" class="nav__wordmark">Soter <span>Labs</span></a>
       <button class="nav__mobile-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav__links').classList.toggle('open')">
         <span></span>
         <span></span>
@@ -508,17 +798,115 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
+    <!-- Shield visual -->
+    <div class="hero__shield-wrap">
+      <!-- Ambient glow -->
+      <div class="hero__shield-glow"></div>
+      <div class="hero__shield-glow-accent"></div>
+
+      <!-- Orbital rings -->
+      <div class="hero__ring hero__ring--1"></div>
+      <div class="hero__ring hero__ring--2"></div>
+      <div class="hero__ring hero__ring--3"></div>
+
+      <!-- Shield shape with glass effect -->
+      <div class="hero__shield-glass">
+        <svg viewBox="0 0 320 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Glass gradient fill -->
+            <linearGradient id="shield-glass" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stop-color="rgba(140,186,219,0.08)" />
+              <stop offset="40%" stop-color="rgba(45,92,138,0.04)" />
+              <stop offset="100%" stop-color="rgba(13,27,42,0.02)" />
+            </linearGradient>
+            <!-- Edge highlight -->
+            <linearGradient id="shield-edge" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(140,186,219,0.25)" />
+              <stop offset="30%" stop-color="rgba(96,151,196,0.1)" />
+              <stop offset="70%" stop-color="rgba(96,151,196,0.06)" />
+              <stop offset="100%" stop-color="rgba(140,186,219,0.15)" />
+            </linearGradient>
+            <!-- Inner glass refraction -->
+            <radialGradient id="shield-refract" cx="35%" cy="35%" r="60%">
+              <stop offset="0%" stop-color="rgba(140,186,219,0.06)" />
+              <stop offset="100%" stop-color="rgba(13,27,42,0)" />
+            </radialGradient>
+            <!-- Chevron highlight -->
+            <linearGradient id="chevron-fill" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stop-color="rgba(140,186,219,0.12)" />
+              <stop offset="100%" stop-color="rgba(96,151,196,0.03)" />
+            </linearGradient>
+          </defs>
+
+          <!-- Main shield body -->
+          <path d="M160 16 L280 72 L280 200 C280 280 230 340 160 368 C90 340 40 280 40 200 L40 72 Z"
+                fill="url(#shield-glass)" stroke="url(#shield-edge)" stroke-width="1" />
+
+          <!-- Inner glass refraction layer -->
+          <path d="M160 16 L280 72 L280 200 C280 280 230 340 160 368 C90 340 40 280 40 200 L40 72 Z"
+                fill="url(#shield-refract)" />
+
+          <!-- Chevron / crest accent at top -->
+          <path d="M160 60 L230 94 L160 128 L90 94 Z"
+                fill="url(#chevron-fill)" stroke="rgba(140,186,219,0.08)" stroke-width="0.5" />
+
+          <!-- Vertical center line -->
+          <line x1="160" y1="60" x2="160" y2="340" stroke="rgba(96,151,196,0.06)" stroke-width="0.5" />
+
+          <!-- Horizontal division lines -->
+          <line x1="60" y1="128" x2="260" y2="128" stroke="rgba(96,151,196,0.04)" stroke-width="0.5" />
+          <line x1="70" y1="220" x2="250" y2="220" stroke="rgba(96,151,196,0.03)" stroke-width="0.5" />
+
+          <!-- Side flanges (like the logo wings) -->
+          <path d="M40 100 L16 120 L16 240 C16 248 20 256 28 260 L40 252"
+                fill="none" stroke="rgba(96,151,196,0.1)" stroke-width="0.75" />
+          <path d="M280 100 L304 120 L304 240 C304 248 300 256 292 260 L280 252"
+                fill="none" stroke="rgba(96,151,196,0.1)" stroke-width="0.75" />
+
+          <!-- Lower wing struts -->
+          <path d="M16 240 L8 280 L8 340"
+                fill="none" stroke="rgba(96,151,196,0.06)" stroke-width="0.5" />
+          <path d="M304 240 L312 280 L312 340"
+                fill="none" stroke="rgba(96,151,196,0.06)" stroke-width="0.5" />
+        </svg>
+      </div>
+
+      <!-- Specular highlight on glass -->
+      <div class="hero__shield-specular"></div>
+
+      <!-- Floating particles -->
+      <div class="hero__particle hero__particle--1"></div>
+      <div class="hero__particle hero__particle--2"></div>
+      <div class="hero__particle hero__particle--3"></div>
+      <div class="hero__particle hero__particle--4"></div>
+      <div class="hero__particle hero__particle--5"></div>
+    </div>
+
     <div class="hero__content">
-      <h1 class="hero__title fade-in">Operations, handled.</h1>
-      <p class="hero__subtitle fade-in">Managed governance services for on-chain organizations.</p>
+      <h1 class="hero__label fade-in">Soter Labs</h1>
+      <p class="hero__subtitle fade-in">Securing the Sky Ecosystem.<br>GovOps for Trust, Rigor, and Credibility.</p>
       <div class="fade-in">
-        <a href="#contact" class="btn">Get in touch &rarr;</a>
+        <a href="#services" class="hero__cta">Explore Services</a>
       </div>
     </div>
   </section>
 
+  <!-- Feature Cards -->
+  <div class="cards">
+    <div class="cards__grid">
+      <div class="card fade-in">
+        <h3 class="card__title">GovOps: Operational Excellence</h3>
+        <p class="card__body">Redefining government operations with precision and transparency. Soter Labs empowers Sky with robust frameworks and data-driven insights.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 class="card__title">Trust Through Technical Credibility</h3>
+        <p class="card__body">Building resilient systems and fostering confidence. Our rigorous methodologies ensure security and reliability at every level.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Services -->
-  <section class="section" id="services">
+  <section class="section services" id="services">
     <div class="section__inner">
       <p class="section__label fade-in">What we do</p>
       <div class="services__grid">
@@ -531,7 +919,7 @@
           <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go-live.</p>
         </div>
         <div class="service-card fade-in">
-          <h3 class="service-card__title">Strategy & Org Design</h3>
+          <h3 class="service-card__title">Strategy &amp; Org Design</h3>
           <p class="service-card__body">Roadmap planning and cross-entity coordination for on-chain organizations navigating structural change.</p>
         </div>
       </div>
@@ -556,7 +944,7 @@
   </section>
 
   <!-- Contact -->
-  <section class="section section--dark" id="contact">
+  <section class="section contact" id="contact">
     <div class="section__inner">
       <div class="contact__content fade-in">
         <h2 class="contact__title">Get in touch</h2>
@@ -569,14 +957,10 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="footer__wordmark">Soter Labs</span>
-        <span class="footer__tagline">Managed governance operations for on-chain organizations.</span>
-      </div>
+      <span class="footer__copy">&copy; 2026 Soter Labs. All rights reserved.</span>
       <ul class="footer__links">
-        <li><a href="#services" class="footer__link">Services</a></li>
-        <li><a href="#about" class="footer__link">About</a></li>
-        <li><a href="#contact" class="footer__link">Contact</a></li>
+        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+        <li><a href="#" class="footer__link">Terms of Service</a></li>
       </ul>
     </div>
   </footer>
