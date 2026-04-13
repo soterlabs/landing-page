@@ -10,10 +10,19 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://soterlabs.com/">
   <link rel="canonical" href="https://soterlabs.com/">
+  <link rel="icon" type="image/png" href="assets/images/logo_wo_name_transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Deltha';
+      src: url('assets/fonts/Deltha.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -21,18 +30,18 @@
     }
 
     :root {
-      --color-midnight-navy: #0D1B2A;
-      --color-cool-white: #F5F7FA;
-      --color-aegean: #2D5C8A;
-      --color-dusk: #1A3654;
-      --color-horizon: #6097C4;
+      --color-charcoal: #1E1E1E;
+      --color-warm-white: #F0EBE0;
+      --color-gold: #C5A55A;
+      --color-gold-dark: #2E2820;
+      --color-gold-light: #D4B96A;
 
-      --color-surface-dark: #0D1B2A;
-      --color-surface-dark-muted: #1A3654;
-      --color-text-on-dark: #F5F7FA;
-      --color-text-on-dark-muted: #8CBADB;
-      --color-border-on-dark: #224870;
-      --color-text-muted: #6A8496;
+      --color-surface-dark: #1E1E1E;
+      --color-surface-dark-muted: #2E2820;
+      --color-text-on-dark: #F0EBE0;
+      --color-text-on-dark-muted: #A09078;
+      --color-border-on-dark: #3D3428;
+      --color-text-muted: #8A7D6B;
 
       --font-heading: 'Space Grotesk', 'Inter', 'Helvetica Neue', Arial, sans-serif;
       --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -59,7 +68,7 @@
       font-size: 16px;
       line-height: 1.65;
       color: var(--color-text-on-dark);
-      background: #060d16;
+      background: #121212;
       overflow-x: hidden;
     }
 
@@ -71,10 +80,10 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(6, 13, 22, 0.7);
+      background: rgba(18, 18, 18, 0.7);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(34, 72, 112, 0.3);
+      border-bottom: 1px solid rgba(197, 165, 90, 0.15);
     }
 
     .nav__inner {
@@ -88,18 +97,28 @@
     }
 
     .nav__wordmark {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--color-text-on-dark);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: 'Deltha', sans-serif;
+      font-size: 20px;
+      font-weight: normal;
+      color: var(--color-gold);
       text-decoration: none;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
+    .nav__wordmark img {
+      height: 32px;
+      width: auto;
+    }
+
     .nav__wordmark span {
-      font-weight: 400;
-      color: var(--color-text-on-dark-muted);
+      font-family: 'Deltha', sans-serif;
+      font-weight: normal;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
     }
 
     .nav__links {
@@ -119,16 +138,16 @@
     }
 
     .nav__link:hover {
-      color: var(--color-text-on-dark);
+      color: var(--color-gold);
     }
 
     .nav__cta {
       font-family: var(--font-body);
       font-size: 14px;
       font-weight: 500;
-      color: var(--color-cool-white);
-      background: rgba(45, 92, 138, 0.5);
-      border: 1px solid rgba(96, 151, 196, 0.3);
+      color: var(--color-warm-white);
+      background: rgba(197, 165, 90, 0.2);
+      border: 1px solid rgba(197, 165, 90, 0.3);
       text-decoration: none;
       padding: var(--space-2) var(--space-4);
       border-radius: 4px;
@@ -136,8 +155,8 @@
     }
 
     .nav__cta:hover {
-      background: rgba(45, 92, 138, 0.8);
-      border-color: rgba(96, 151, 196, 0.5);
+      background: rgba(197, 165, 90, 0.35);
+      border-color: rgba(197, 165, 90, 0.5);
     }
 
     .nav__mobile-toggle {
@@ -152,7 +171,7 @@
       display: block;
       width: 20px;
       height: 2px;
-      background: var(--color-text-on-dark);
+      background: var(--color-gold);
       margin: 4px 0;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
@@ -184,7 +203,7 @@
       perspective: 900px;
     }
 
-    /* Ambient glow behind shield */
+    /* Ambient glow behind logo */
     .hero__shield-glow {
       position: absolute;
       top: 50%;
@@ -193,7 +212,7 @@
       width: 420px;
       height: 420px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(45, 92, 138, 0.25) 0%, rgba(26, 54, 84, 0.1) 40%, transparent 70%);
+      background: radial-gradient(circle, rgba(197, 165, 90, 0.2) 0%, rgba(160, 130, 60, 0.08) 40%, transparent 70%);
       filter: blur(60px);
     }
 
@@ -205,47 +224,8 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(96, 151, 196, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212, 185, 106, 0.12) 0%, transparent 70%);
       filter: blur(30px);
-    }
-
-    /* The shield SVG */
-    .hero__shield-svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 320px;
-      height: 380px;
-    }
-
-    /* Glass surface on the shield */
-    .hero__shield-glass {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 320px;
-      height: 380px;
-      overflow: hidden;
-    }
-
-    .hero__shield-glass svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    /* Specular highlight */
-    .hero__shield-specular {
-      position: absolute;
-      top: 15%;
-      left: 20%;
-      width: 55%;
-      height: 40%;
-      background: linear-gradient(165deg, rgba(140, 186, 219, 0.12) 0%, rgba(140, 186, 219, 0.03) 40%, transparent 70%);
-      border-radius: 50%;
-      transform: rotate(-10deg);
-      filter: blur(8px);
     }
 
     /* Orbital rings */
@@ -254,7 +234,7 @@
       top: 50%;
       left: 50%;
       border-radius: 50%;
-      border: 1px solid rgba(96, 151, 196, 0.1);
+      border: 1px solid rgba(197, 165, 90, 0.1);
       transform-style: preserve-3d;
     }
 
@@ -264,7 +244,7 @@
       margin-top: -220px;
       margin-left: -220px;
       transform: rotateX(68deg) rotateZ(-15deg);
-      border-color: rgba(96, 151, 196, 0.1);
+      border-color: rgba(197, 165, 90, 0.1);
       animation: ring-rotate-1 30s linear infinite;
     }
 
@@ -274,7 +254,7 @@
       margin-top: -195px;
       margin-left: -195px;
       transform: rotateX(62deg) rotateZ(25deg);
-      border-color: rgba(96, 151, 196, 0.07);
+      border-color: rgba(197, 165, 90, 0.07);
       animation: ring-rotate-2 40s linear infinite;
     }
 
@@ -284,7 +264,7 @@
       margin-top: -240px;
       margin-left: -240px;
       transform: rotateX(72deg) rotateZ(-40deg);
-      border-color: rgba(96, 151, 196, 0.05);
+      border-color: rgba(197, 165, 90, 0.05);
       animation: ring-rotate-3 50s linear infinite;
     }
 
@@ -296,8 +276,8 @@
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: rgba(96, 151, 196, 0.4);
-      box-shadow: 0 0 8px rgba(96, 151, 196, 0.3);
+      background: rgba(197, 165, 90, 0.4);
+      box-shadow: 0 0 8px rgba(197, 165, 90, 0.3);
     }
 
     .hero__ring--1::before {
@@ -331,8 +311,8 @@
       width: 2px;
       height: 2px;
       border-radius: 50%;
-      background: rgba(96, 151, 196, 0.35);
-      box-shadow: 0 0 6px rgba(96, 151, 196, 0.2);
+      background: rgba(197, 165, 90, 0.35);
+      box-shadow: 0 0 6px rgba(197, 165, 90, 0.2);
     }
 
     .hero__particle--1 { top: 25%; left: 18%; animation: float-1 6s ease-in-out infinite; }
@@ -365,8 +345,8 @@
       right: 0;
       bottom: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(13, 27, 42, 0) 0%, #060d16 70%),
-        radial-gradient(circle at 50% 50%, rgba(26, 54, 84, 0.15) 0%, transparent 50%);
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(30, 30, 30, 0) 0%, #121212 70%),
+        radial-gradient(circle at 50% 50%, rgba(46, 40, 32, 0.15) 0%, transparent 50%);
       z-index: 1;
     }
 
@@ -378,14 +358,22 @@
     }
 
     .hero__label {
-      font-family: var(--font-heading);
+      font-family: 'Deltha', sans-serif;
       font-size: clamp(36px, 6vw, 56px);
-      font-weight: 700;
+      font-weight: normal;
       line-height: 1.1;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--color-text-on-dark);
+      color: var(--color-gold);
       margin-bottom: var(--space-6);
+    }
+
+    .hero__label span {
+      font-family: 'Deltha', sans-serif;
+      font-weight: normal;
+      font-size: 0.55em;
+      letter-spacing: 0.15em;
+      color: var(--color-gold);
     }
 
     .hero__subtitle {
@@ -405,19 +393,19 @@
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--color-text-on-dark);
+      color: var(--color-warm-white);
       text-decoration: none;
       padding: 14px 36px;
-      border: 1px solid rgba(140, 186, 219, 0.3);
+      border: 1px solid rgba(197, 165, 90, 0.4);
       border-radius: 2px;
-      background: rgba(13, 27, 42, 0.4);
+      background: rgba(197, 165, 90, 0.1);
       backdrop-filter: blur(8px);
       transition: all 0.3s ease;
     }
 
     .hero__cta:hover {
-      background: rgba(45, 92, 138, 0.3);
-      border-color: rgba(140, 186, 219, 0.5);
+      background: rgba(197, 165, 90, 0.25);
+      border-color: rgba(197, 165, 90, 0.6);
     }
 
     /* ── Cards ── */
@@ -434,22 +422,22 @@
 
     .cards__grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--space-6);
     }
 
     .card {
-      background: rgba(13, 27, 42, 0.5);
+      background: rgba(30, 30, 30, 0.5);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(96, 151, 196, 0.1);
+      border: 1px solid rgba(197, 165, 90, 0.1);
       border-radius: 8px;
       padding: var(--space-8);
       transition: border-color 0.3s ease;
     }
 
     .card:hover {
-      border-color: rgba(96, 151, 196, 0.25);
+      border-color: rgba(197, 165, 90, 0.3);
     }
 
     .card__title {
@@ -484,7 +472,7 @@
       font-weight: 500;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--color-text-on-dark-muted);
+      color: var(--color-gold);
       margin-bottom: var(--space-12);
     }
 
@@ -501,15 +489,15 @@
     }
 
     .service-card {
-      border: 1px solid rgba(96, 151, 196, 0.1);
+      border: 1px solid rgba(197, 165, 90, 0.1);
       border-radius: 8px;
       padding: var(--space-8);
-      background: rgba(13, 27, 42, 0.3);
+      background: rgba(30, 30, 30, 0.3);
       transition: border-color 0.3s ease;
     }
 
     .service-card:hover {
-      border-color: rgba(96, 151, 196, 0.25);
+      border-color: rgba(197, 165, 90, 0.3);
     }
 
     .service-card__title {
@@ -527,13 +515,42 @@
       color: var(--color-text-on-dark-muted);
     }
 
+    .services__subsection {
+      margin-bottom: var(--space-12);
+    }
+
+    .services__subsection:last-child {
+      margin-bottom: 0;
+    }
+
+    .services__subtitle {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-6);
+    }
+
+    .services__subtitle em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--color-text-on-dark-muted);
+      font-size: 14px;
+    }
+
+    .services__grid--4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
     /* ── Trust Strip ── */
 
     .trust {
       text-align: center;
       padding: var(--space-16) var(--space-8);
-      border-top: 1px solid rgba(96, 151, 196, 0.08);
-      border-bottom: 1px solid rgba(96, 151, 196, 0.08);
+      border-top: 1px solid rgba(197, 165, 90, 0.1);
+      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
     }
 
     .trust__inner {
@@ -550,7 +567,7 @@
     }
 
     .trust__stats span {
-      color: var(--color-horizon);
+      color: var(--color-gold);
     }
 
     .trust__clients {
@@ -575,19 +592,19 @@
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 500;
-      color: var(--color-horizon);
+      color: var(--color-gold);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     .about__cta:hover {
-      color: var(--color-text-on-dark);
+      color: var(--color-gold-light);
     }
 
     /* ── Contact ── */
 
     .contact {
-      border-top: 1px solid rgba(96, 151, 196, 0.08);
+      border-top: 1px solid rgba(197, 165, 90, 0.1);
     }
 
     .contact__content {
@@ -615,8 +632,8 @@
       font-family: var(--font-body);
       font-size: 14px;
       font-weight: 500;
-      color: var(--color-cool-white);
-      background: var(--color-aegean);
+      color: #121212;
+      background: var(--color-gold);
       text-decoration: none;
       padding: 14px var(--space-8);
       border-radius: 4px;
@@ -626,13 +643,13 @@
     }
 
     .btn:hover {
-      background: #3a6f9e;
+      background: var(--color-gold-light);
     }
 
     /* ── Footer ── */
 
     .footer {
-      border-top: 1px solid rgba(96, 151, 196, 0.08);
+      border-top: 1px solid rgba(197, 165, 90, 0.1);
       padding: var(--space-8) var(--space-8);
     }
 
@@ -663,7 +680,7 @@
     }
 
     .footer__link:hover {
-      color: var(--color-text-on-dark);
+      color: var(--color-gold);
     }
 
     /* ── Animations ── */
@@ -711,9 +728,9 @@
         top: 64px;
         left: 0;
         right: 0;
-        background: rgba(6, 13, 22, 0.95);
+        background: rgba(18, 18, 18, 0.95);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(34, 72, 112, 0.3);
+        border-bottom: 1px solid rgba(197, 165, 90, 0.15);
         flex-direction: column;
         padding: var(--space-6);
         gap: var(--space-6);
@@ -737,12 +754,6 @@
         height: 400px;
       }
 
-      .hero__shield-svg,
-      .hero__shield-glass {
-        width: 220px;
-        height: 260px;
-      }
-
       .hero__ring--1 { width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; }
       .hero__ring--2 { width: 260px; height: 260px; margin-top: -130px; margin-left: -130px; }
       .hero__ring--3 { width: 330px; height: 330px; margin-top: -165px; margin-left: -165px; }
@@ -752,10 +763,11 @@
       }
 
       .cards__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .services__grid {
+      .services__grid,
+      .services__grid--4 {
         grid-template-columns: 1fr;
         gap: var(--space-4);
       }
@@ -781,7 +793,7 @@
   <!-- Nav -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__wordmark">Soter <span>Labs</span></a>
+      <a href="/" class="nav__wordmark"><img src="assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
       <button class="nav__mobile-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav__links').classList.toggle('open')">
         <span></span>
         <span></span>
@@ -798,7 +810,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <!-- Shield visual -->
+    <!-- Logo visual -->
     <div class="hero__shield-wrap">
       <!-- Ambient glow -->
       <div class="hero__shield-glow"></div>
@@ -809,71 +821,6 @@
       <div class="hero__ring hero__ring--2"></div>
       <div class="hero__ring hero__ring--3"></div>
 
-      <!-- Shield shape with glass effect -->
-      <div class="hero__shield-glass">
-        <svg viewBox="0 0 320 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <!-- Glass gradient fill -->
-            <linearGradient id="shield-glass" x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stop-color="rgba(140,186,219,0.08)" />
-              <stop offset="40%" stop-color="rgba(45,92,138,0.04)" />
-              <stop offset="100%" stop-color="rgba(13,27,42,0.02)" />
-            </linearGradient>
-            <!-- Edge highlight -->
-            <linearGradient id="shield-edge" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(140,186,219,0.25)" />
-              <stop offset="30%" stop-color="rgba(96,151,196,0.1)" />
-              <stop offset="70%" stop-color="rgba(96,151,196,0.06)" />
-              <stop offset="100%" stop-color="rgba(140,186,219,0.15)" />
-            </linearGradient>
-            <!-- Inner glass refraction -->
-            <radialGradient id="shield-refract" cx="35%" cy="35%" r="60%">
-              <stop offset="0%" stop-color="rgba(140,186,219,0.06)" />
-              <stop offset="100%" stop-color="rgba(13,27,42,0)" />
-            </radialGradient>
-            <!-- Chevron highlight -->
-            <linearGradient id="chevron-fill" x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stop-color="rgba(140,186,219,0.12)" />
-              <stop offset="100%" stop-color="rgba(96,151,196,0.03)" />
-            </linearGradient>
-          </defs>
-
-          <!-- Main shield body -->
-          <path d="M160 16 L280 72 L280 200 C280 280 230 340 160 368 C90 340 40 280 40 200 L40 72 Z"
-                fill="url(#shield-glass)" stroke="url(#shield-edge)" stroke-width="1" />
-
-          <!-- Inner glass refraction layer -->
-          <path d="M160 16 L280 72 L280 200 C280 280 230 340 160 368 C90 340 40 280 40 200 L40 72 Z"
-                fill="url(#shield-refract)" />
-
-          <!-- Chevron / crest accent at top -->
-          <path d="M160 60 L230 94 L160 128 L90 94 Z"
-                fill="url(#chevron-fill)" stroke="rgba(140,186,219,0.08)" stroke-width="0.5" />
-
-          <!-- Vertical center line -->
-          <line x1="160" y1="60" x2="160" y2="340" stroke="rgba(96,151,196,0.06)" stroke-width="0.5" />
-
-          <!-- Horizontal division lines -->
-          <line x1="60" y1="128" x2="260" y2="128" stroke="rgba(96,151,196,0.04)" stroke-width="0.5" />
-          <line x1="70" y1="220" x2="250" y2="220" stroke="rgba(96,151,196,0.03)" stroke-width="0.5" />
-
-          <!-- Side flanges (like the logo wings) -->
-          <path d="M40 100 L16 120 L16 240 C16 248 20 256 28 260 L40 252"
-                fill="none" stroke="rgba(96,151,196,0.1)" stroke-width="0.75" />
-          <path d="M280 100 L304 120 L304 240 C304 248 300 256 292 260 L280 252"
-                fill="none" stroke="rgba(96,151,196,0.1)" stroke-width="0.75" />
-
-          <!-- Lower wing struts -->
-          <path d="M16 240 L8 280 L8 340"
-                fill="none" stroke="rgba(96,151,196,0.06)" stroke-width="0.5" />
-          <path d="M304 240 L312 280 L312 340"
-                fill="none" stroke="rgba(96,151,196,0.06)" stroke-width="0.5" />
-        </svg>
-      </div>
-
-      <!-- Specular highlight on glass -->
-      <div class="hero__shield-specular"></div>
-
       <!-- Floating particles -->
       <div class="hero__particle hero__particle--1"></div>
       <div class="hero__particle hero__particle--2"></div>
@@ -883,24 +830,32 @@
     </div>
 
     <div class="hero__content">
-      <h1 class="hero__label fade-in">Soter Labs</h1>
-      <p class="hero__subtitle fade-in">Securing the Sky Ecosystem.<br>GovOps for Trust, Rigor, and Credibility.</p>
+      <h1 class="hero__label fade-in">Soter <span>Labs</span></h1>
+      <p class="hero__subtitle fade-in">We make complex operations simple<br>and opaque processes transparent.</p>
       <div class="fade-in">
         <a href="#services" class="hero__cta">Explore Services</a>
       </div>
     </div>
   </section>
 
-  <!-- Feature Cards -->
+  <!-- Values -->
   <div class="cards">
     <div class="cards__grid">
       <div class="card fade-in">
-        <h3 class="card__title">GovOps: Operational Excellence</h3>
-        <p class="card__body">Redefining government operations with precision and transparency. Soter Labs empowers Sky with robust frameworks and data-driven insights.</p>
+        <h3 class="card__title">Transparency</h3>
+        <p class="card__body">We make opaque processes visible. Every decision has a clear audit trail, and stakeholders always know where things stand.</p>
       </div>
       <div class="card fade-in">
-        <h3 class="card__title">Trust Through Technical Credibility</h3>
-        <p class="card__body">Building resilient systems and fostering confidence. Our rigorous methodologies ensure security and reliability at every level.</p>
+        <h3 class="card__title">Reliability</h3>
+        <p class="card__body">We deliver on our commitments — every time. Stars and Agents can depend on us to execute with precision and consistency.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 class="card__title">Accountability</h3>
+        <p class="card__body">We own our work end-to-end. When something goes wrong, we fix it, learn from it, and improve our processes.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 class="card__title">Simplicity</h3>
+        <p class="card__body">Complex operations shouldn't feel complex. We design systems that are easy to understand, use, and maintain.</p>
       </div>
     </div>
   </div>
@@ -909,18 +864,44 @@
   <section class="section services" id="services">
     <div class="section__inner">
       <p class="section__label fade-in">What we do</p>
-      <div class="services__grid">
-        <div class="service-card fade-in">
-          <h3 class="service-card__title">Managed Governance Operations</h3>
-          <p class="service-card__body">Biweekly spell cycles, capital monitoring, Atlas compliance, deployment coordination — handled end to end.</p>
+
+      <div class="services__subsection">
+        <p class="services__subtitle fade-in">For Agents <em>— services provided through OEAs</em></p>
+        <div class="services__grid">
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Recurring Operations</h3>
+            <p class="service-card__body">Biweekly spell cycles, capital monitoring, deployment coordination, and routine governance workflows — handled end to end.</p>
+          </div>
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Technical Operations</h3>
+            <p class="service-card__body">Spell crafting, spell reviewing, smart contract deployment, and technical infrastructure management for on-chain agents.</p>
+          </div>
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Governance &amp; Compliance</h3>
+            <p class="service-card__body">Atlas compliance, regulatory alignment, audit trail maintenance, and transparent reporting for all agent activities.</p>
+          </div>
         </div>
-        <div class="service-card fade-in">
-          <h3 class="service-card__title">Agent Incubation</h3>
-          <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go-live.</p>
-        </div>
-        <div class="service-card fade-in">
-          <h3 class="service-card__title">Strategy &amp; Org Design</h3>
-          <p class="service-card__body">Roadmap planning and cross-entity coordination for on-chain organizations navigating structural change.</p>
+      </div>
+
+      <div class="services__subsection">
+        <p class="services__subtitle fade-in">For Ecosystems <em>— services provided directly to clients</em></p>
+        <div class="services__grid--4">
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Agent Incubation</h3>
+            <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go-live.</p>
+          </div>
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Strategy &amp; Leadership</h3>
+            <p class="service-card__body">Roadmap planning and cross-entity coordination for on-chain organizations navigating structural change.</p>
+          </div>
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Organizational Transformation</h3>
+            <p class="service-card__body">Restructuring teams, processes, and governance models to align with evolving protocol requirements.</p>
+          </div>
+          <div class="service-card fade-in">
+            <h3 class="service-card__title">Change Management</h3>
+            <p class="service-card__body">Guiding organizations through transitions with clear communication, stakeholder alignment, and phased execution.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -929,8 +910,9 @@
   <!-- Trust Strip -->
   <section class="trust">
     <div class="trust__inner fade-in">
-      <p class="trust__stats"><span>19</span> organizations · <span>64</span> active projects · Sky ecosystem</p>
-      <p class="trust__clients">Spark · Grove · Skybase · Keel · Obex · Prysm</p>
+      <p class="trust__stats">Operating <span>2</span> Genesis Executor Agents across the Sky Ecosystem</p>
+      <p class="trust__clients">Ozone OEA: Obex · Skybase · Pattern · Launch Agent 6 · Launch Agent 7</p>
+      <p class="trust__clients">Amatsu OEA: Spark · Grove · Keel</p>
     </div>
   </section>
 
@@ -938,10 +920,13 @@
   <section class="section" id="about">
     <div class="section__inner">
       <p class="section__label fade-in">Who we are</p>
-      <p class="about__body fade-in">Soter Labs is the managed operations layer for on-chain organizations — handling governance cycles, capital monitoring, deployment coordination, and agent incubation across the Sky ecosystem. Our team evolved from MakerDAO's former governance core units and operates Ozone and Amatsu, the two Genesis Executor Agents. When execution can't fail, organizations hire Soter Labs.</p>
-      <a href="#services" class="about__cta fade-in">See how we work &rarr;</a>
+      <p class="about__body fade-in">Soter Labs is the trusted GovOps provider building the Ozone Executor Agent, and now operates the Amatsu Executor Agent. We design and manage the scalable frameworks and processes that ensure the compliant, transparent, and accountable operation of Sky's Agents.</p>
+      <p class="about__body fade-in" style="font-style: italic; font-size: 16px;">In ancient Greek mythology, Soter was the personified spirit of safety, preservation, and deliverance from harm. We carry that name because protecting what matters — through reliable operations, transparent processes, and accountable execution — is at the heart of everything we do.</p>
+      <p class="about__body fade-in">Our goal is to execute the SkyDAO's mandate — scaling the ecosystem from 10B to 1T USDS — by providing reliable, world-class operational services for its advanced DeFi primitives.</p>
     </div>
   </section>
+
+
 
   <!-- Contact -->
   <section class="section contact" id="contact">
@@ -949,7 +934,7 @@
       <div class="contact__content fade-in">
         <h2 class="contact__title">Get in touch</h2>
         <p class="contact__body">Tell us about your organization and what you're navigating. We'll respond within one business day.</p>
-        <a href="mailto:contact@soterlabs.com" class="btn">contact@soterlabs.com &rarr;</a>
+        <a href="mailto:govops@soterlabs.com" class="btn">govops@soterlabs.com &rarr;</a>
       </div>
     </div>
   </section>
