@@ -6,7 +6,7 @@
   <title>Soter Labs — Managed Governance Operations</title>
   <meta name="description" content="Soter Labs runs governance operations for on-chain organizations. Biweekly spell cycles, capital monitoring, Atlas compliance, and deployment coordination — handled end to end across the Sky ecosystem.">
   <meta property="og:title" content="Operations, handled. — Soter Labs">
-  <meta property="og:description" content="Managed governance services for on-chain organizations. 19 organizations. 64 active projects. Sky ecosystem.">
+  <meta property="og:description" content="Managed governance services for on-chain organizations. Operating 2 Genesis Executor Agents across the Sky Ecosystem.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://soterlabs.com/">
   <link rel="canonical" href="https://soterlabs.com/">
@@ -42,6 +42,10 @@
       --color-text-on-dark-muted: #A09078;
       --color-border-on-dark: #3D3428;
       --color-text-muted: #8A7D6B;
+
+      --color-border-subtle: rgba(240, 235, 224, 0.08);
+      --color-border-subtle-strong: rgba(240, 235, 224, 0.12);
+      --color-border-gold-hover: rgba(197, 165, 90, 0.35);
 
       --font-heading: 'Space Grotesk', 'Inter', 'Helvetica Neue', Arial, sans-serif;
       --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -83,7 +87,7 @@
       background: rgba(18, 18, 18, 0.7);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+      border-bottom: 1px solid var(--color-border-subtle-strong);
     }
 
     .nav__inner {
@@ -359,10 +363,10 @@
 
     .hero__label {
       font-family: 'Deltha', sans-serif;
-      font-size: clamp(36px, 6vw, 56px);
+      font-size: clamp(14px, 1.8vw, 18px);
       font-weight: normal;
-      line-height: 1.1;
-      letter-spacing: 0.12em;
+      line-height: 1.2;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--color-gold);
       margin-bottom: var(--space-6);
@@ -371,19 +375,41 @@
     .hero__label span {
       font-family: 'Deltha', sans-serif;
       font-weight: normal;
-      font-size: 0.55em;
-      letter-spacing: 0.15em;
+      font-size: 1em;
+      letter-spacing: 0.22em;
       color: var(--color-gold);
+    }
+
+    .hero__tagline {
+      font-family: var(--font-heading);
+      font-size: clamp(34px, 5.5vw, 56px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero__tagline a {
+      color: var(--color-gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(197, 165, 90, 0.3);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .hero__tagline a:hover {
+      color: var(--color-gold-light);
+      border-color: rgba(212, 185, 106, 0.75);
     }
 
     .hero__subtitle {
       font-family: var(--font-heading);
-      font-size: clamp(18px, 3vw, 28px);
+      font-size: clamp(17px, 2.2vw, 22px);
       font-weight: 500;
-      line-height: 1.35;
+      line-height: 1.45;
       color: var(--color-text-on-dark-muted);
       margin-bottom: var(--space-12);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.005em;
     }
 
     .hero__cta {
@@ -430,14 +456,14 @@
       background: rgba(30, 30, 30, 0.5);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(197, 165, 90, 0.1);
+      border: 1px solid var(--color-border-subtle);
       border-radius: 8px;
-      padding: var(--space-8);
+      padding: var(--space-6);
       transition: border-color 0.3s ease;
     }
 
     .card:hover {
-      border-color: rgba(197, 165, 90, 0.3);
+      border-color: var(--color-border-gold-hover);
     }
 
     .card__title {
@@ -467,13 +493,24 @@
     }
 
     .section__label {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-12);
+    }
+
+    .cards__eyebrow {
       font-family: var(--font-body);
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--color-gold);
-      margin-bottom: var(--space-12);
+      margin-bottom: var(--space-6);
+      text-align: center;
     }
 
     /* ── Services ── */
@@ -489,7 +526,7 @@
     }
 
     .service-card {
-      border: 1px solid rgba(197, 165, 90, 0.1);
+      border: 1px solid var(--color-border-subtle);
       border-radius: 8px;
       padding: var(--space-8);
       background: rgba(30, 30, 30, 0.3);
@@ -497,7 +534,7 @@
     }
 
     .service-card:hover {
-      border-color: rgba(197, 165, 90, 0.3);
+      border-color: var(--color-border-gold-hover);
     }
 
     .service-card__title {
@@ -538,19 +575,14 @@
       font-size: 14px;
     }
 
-    .services__grid--4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-6);
-    }
-
     /* ── Trust Strip ── */
 
     .trust {
       text-align: center;
-      padding: var(--space-16) var(--space-8);
-      border-top: 1px solid rgba(197, 165, 90, 0.1);
-      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+      padding: var(--space-24) var(--space-8);
+      border-top: 1px solid var(--color-border-subtle);
+      border-bottom: 1px solid var(--color-border-subtle);
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46, 40, 32, 0.25) 0%, transparent 70%);
     }
 
     .trust__inner {
@@ -558,12 +590,24 @@
       margin: 0 auto;
     }
 
+    .trust__eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-6);
+    }
+
     .trust__stats {
       font-family: var(--font-heading);
-      font-size: 18px;
+      font-size: clamp(24px, 3.5vw, 34px);
       font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
       color: var(--color-text-on-dark);
-      margin-bottom: var(--space-6);
+      margin-bottom: var(--space-8);
     }
 
     .trust__stats span {
@@ -572,10 +616,26 @@
 
     .trust__clients {
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 400;
-      color: var(--color-text-muted);
+      color: var(--color-text-on-dark-muted);
       letter-spacing: 0.02em;
+      margin-bottom: var(--space-2);
+    }
+
+    .trust__clients a {
+      color: var(--color-text-on-dark);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .trust__clients a:hover {
+      color: var(--color-gold);
+    }
+
+    .trust__clients strong {
+      font-weight: 600;
+      color: var(--color-gold);
     }
 
     /* ── About ── */
@@ -586,6 +646,11 @@
       line-height: 1.65;
       color: var(--color-text-on-dark-muted);
       margin-bottom: var(--space-8);
+    }
+
+    .about__body--quote {
+      font-style: italic;
+      font-size: 16px;
     }
 
     .about__cta {
@@ -604,7 +669,7 @@
     /* ── Contact ── */
 
     .contact {
-      border-top: 1px solid rgba(197, 165, 90, 0.1);
+      border-top: 1px solid var(--color-border-subtle);
     }
 
     .contact__content {
@@ -649,7 +714,7 @@
     /* ── Footer ── */
 
     .footer {
-      border-top: 1px solid rgba(197, 165, 90, 0.1);
+      border-top: 1px solid var(--color-border-subtle);
       padding: var(--space-8) var(--space-8);
     }
 
@@ -664,12 +729,6 @@
     .footer__copy {
       font-size: 13px;
       color: var(--color-text-muted);
-    }
-
-    .footer__links {
-      display: flex;
-      gap: var(--space-6);
-      list-style: none;
     }
 
     .footer__link {
@@ -704,6 +763,7 @@
     .hero .fade-in:nth-child(1) { transition-delay: 0.15s; }
     .hero .fade-in:nth-child(2) { transition-delay: 0.3s; }
     .hero .fade-in:nth-child(3) { transition-delay: 0.45s; }
+    .hero .fade-in:nth-child(4) { transition-delay: 0.6s; }
 
     .hero.loaded .fade-in {
       opacity: 1;
@@ -719,6 +779,44 @@
       opacity: 1;
     }
 
+    /* ── Focus states ── */
+
+    :focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline-offset: 4px;
+    }
+
+    /* ── Reduced motion ── */
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .hero__ring--1,
+      .hero__ring--2,
+      .hero__ring--3,
+      .hero__particle--1,
+      .hero__particle--2,
+      .hero__particle--3,
+      .hero__particle--4,
+      .hero__particle--5 {
+        animation: none;
+      }
+
+      .fade-in,
+      .hero .fade-in,
+      .hero__shield-wrap {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
     /* ── Responsive ── */
 
     @media (max-width: 768px) {
@@ -730,7 +828,7 @@
         right: 0;
         background: rgba(18, 18, 18, 0.95);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+        border-bottom: 1px solid var(--color-border-subtle-strong);
         flex-direction: column;
         padding: var(--space-6);
         gap: var(--space-6);
@@ -766,8 +864,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .services__grid,
-      .services__grid--4 {
+      .services__grid {
         grid-template-columns: 1fr;
         gap: var(--space-4);
       }
@@ -810,18 +907,15 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <!-- Logo visual -->
-    <div class="hero__shield-wrap">
-      <!-- Ambient glow -->
+    <!-- Decorative visual -->
+    <div class="hero__shield-wrap" aria-hidden="true">
       <div class="hero__shield-glow"></div>
       <div class="hero__shield-glow-accent"></div>
 
-      <!-- Orbital rings -->
       <div class="hero__ring hero__ring--1"></div>
       <div class="hero__ring hero__ring--2"></div>
       <div class="hero__ring hero__ring--3"></div>
 
-      <!-- Floating particles -->
       <div class="hero__particle hero__particle--1"></div>
       <div class="hero__particle hero__particle--2"></div>
       <div class="hero__particle hero__particle--3"></div>
@@ -830,8 +924,9 @@
     </div>
 
     <div class="hero__content">
-      <h1 class="hero__label fade-in">Soter <span>Labs</span></h1>
-      <p class="hero__subtitle fade-in">We make complex operations simple<br>and opaque processes transparent.</p>
+      <p class="hero__label fade-in">Soter <span>Labs</span></p>
+      <h1 class="hero__tagline fade-in">Trusted GovOps provider for the <a href="https://www.skyeco.com/" target="_blank" rel="noopener">Sky Ecosystem</a></h1>
+      <p class="hero__subtitle fade-in">We make complex operations simple and opaque processes transparent.</p>
       <div class="fade-in">
         <a href="#services" class="hero__cta">Explore Services</a>
       </div>
@@ -840,22 +935,23 @@
 
   <!-- Values -->
   <div class="cards">
+    <p class="cards__eyebrow fade-in">Our Values</p>
     <div class="cards__grid">
       <div class="card fade-in">
         <h3 class="card__title">Transparency</h3>
-        <p class="card__body">We make opaque processes visible. Every decision has a clear audit trail, and stakeholders always know where things stand.</p>
+        <p class="card__body">We make opaque processes visible.</p>
       </div>
       <div class="card fade-in">
         <h3 class="card__title">Reliability</h3>
-        <p class="card__body">We deliver on our commitments — every time. Stars and Agents can depend on us to execute with precision and consistency.</p>
+        <p class="card__body">We deliver on our commitments — every time.</p>
       </div>
       <div class="card fade-in">
         <h3 class="card__title">Accountability</h3>
-        <p class="card__body">We own our work end-to-end. When something goes wrong, we fix it, learn from it, and improve our processes.</p>
+        <p class="card__body">We own our work end-to-end.</p>
       </div>
       <div class="card fade-in">
         <h3 class="card__title">Simplicity</h3>
-        <p class="card__body">Complex operations shouldn't feel complex. We design systems that are easy to understand, use, and maintain.</p>
+        <p class="card__body">Complex operations shouldn't feel complex.</p>
       </div>
     </div>
   </div>
@@ -866,7 +962,7 @@
       <p class="section__label fade-in">What we do</p>
 
       <div class="services__subsection">
-        <p class="services__subtitle fade-in">For Agents <em>— services provided through OEAs</em></p>
+        <p class="services__subtitle fade-in">For Agents <em>— ongoing operational services for active on-chain agents</em></p>
         <div class="services__grid">
           <div class="service-card fade-in">
             <h3 class="service-card__title">Recurring Operations</h3>
@@ -884,8 +980,8 @@
       </div>
 
       <div class="services__subsection">
-        <p class="services__subtitle fade-in">For Ecosystems <em>— services provided directly to clients</em></p>
-        <div class="services__grid--4">
+        <p class="services__subtitle fade-in">For Ecosystems <em>— incubation, strategy, and transformation for organizations launching or evolving agents</em></p>
+        <div class="services__grid">
           <div class="service-card fade-in">
             <h3 class="service-card__title">Agent Incubation</h3>
             <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go-live.</p>
@@ -898,10 +994,6 @@
             <h3 class="service-card__title">Organizational Transformation</h3>
             <p class="service-card__body">Restructuring teams, processes, and governance models to align with evolving protocol requirements.</p>
           </div>
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Change Management</h3>
-            <p class="service-card__body">Guiding organizations through transitions with clear communication, stakeholder alignment, and phased execution.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -910,9 +1002,10 @@
   <!-- Trust Strip -->
   <section class="trust">
     <div class="trust__inner fade-in">
+      <p class="trust__eyebrow">Proof of work</p>
       <p class="trust__stats">Operating <span>2</span> Genesis Executor Agents across the Sky Ecosystem</p>
-      <p class="trust__clients">Ozone OEA: Obex · Skybase · Pattern · Launch Agent 6 · Launch Agent 7</p>
-      <p class="trust__clients">Amatsu OEA: Spark · Grove · Keel</p>
+      <p class="trust__clients"><strong>Ozone OEA:</strong> <a href="https://obex.xyz/" target="_blank" rel="noopener">Obex</a> · <a href="https://sky.money/" target="_blank" rel="noopener">Skybase</a> · <a href="https://obex.xyz/" target="_blank" rel="noopener">Pattern</a> · <a href="#" target="_blank" rel="noopener">Launch Agent 6</a> · <a href="#" target="_blank" rel="noopener">Launch Agent 7</a></p>
+      <p class="trust__clients"><strong>Amatsu OEA:</strong> <a href="https://spark.fi" target="_blank" rel="noopener">Spark</a> · <a href="https://www.grove.finance/" target="_blank" rel="noopener">Grove</a> · <a href="http://keel.fi/" target="_blank" rel="noopener">Keel</a></p>
     </div>
   </section>
 
@@ -921,8 +1014,8 @@
     <div class="section__inner">
       <p class="section__label fade-in">Who we are</p>
       <p class="about__body fade-in">Soter Labs is the trusted GovOps provider building the Ozone Executor Agent, and now operates the Amatsu Executor Agent. We design and manage the scalable frameworks and processes that ensure the compliant, transparent, and accountable operation of Sky's Agents.</p>
-      <p class="about__body fade-in" style="font-style: italic; font-size: 16px;">In ancient Greek mythology, Soter was the personified spirit of safety, preservation, and deliverance from harm. We carry that name because protecting what matters — through reliable operations, transparent processes, and accountable execution — is at the heart of everything we do.</p>
-      <p class="about__body fade-in">Our goal is to execute the SkyDAO's mandate — scaling the ecosystem from 10B to 1T USDS — by providing reliable, world-class operational services for its advanced DeFi primitives.</p>
+      <p class="about__body about__body--quote fade-in">In ancient Greek mythology, Soter was the personified spirit of safety, preservation, and deliverance from harm. We carry that name because protecting what matters — through reliable operations, transparent processes, and accountable execution — is at the heart of everything we do.</p>
+      <p class="about__body fade-in">Our goal is to execute the Sky's mandate — scaling the ecosystem from 10B to 1T USDS — by providing reliable, world-class operational services for its advanced DeFi primitives.</p>
     </div>
   </section>
 
@@ -933,7 +1026,7 @@
     <div class="section__inner">
       <div class="contact__content fade-in">
         <h2 class="contact__title">Get in touch</h2>
-        <p class="contact__body">Tell us about your organization and what you're navigating. We'll respond within one business day.</p>
+        <p class="contact__body">Tell us about your organization and what you're navigating.</p>
         <a href="mailto:govops@soterlabs.com" class="btn">govops@soterlabs.com &rarr;</a>
       </div>
     </div>
@@ -942,15 +1035,15 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__inner">
-      <span class="footer__copy">&copy; 2026 Soter Labs. All rights reserved.</span>
-      <ul class="footer__links">
-        <li><a href="#" class="footer__link">Privacy Policy</a></li>
-        <li><a href="#" class="footer__link">Terms of Service</a></li>
-      </ul>
+      <span class="footer__copy">&copy; <span id="footer-year">2026</span> Soter Labs. All rights reserved.</span>
+      <a href="mailto:govops@soterlabs.com" class="footer__link">govops@soterlabs.com</a>
     </div>
   </footer>
 
   <script>
+    // Auto-update copyright year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
     // Hero load animation
     window.addEventListener('load', function () {
       document.querySelector('.hero').classList.add('loaded');
