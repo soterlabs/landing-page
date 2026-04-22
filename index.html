@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soter Labs — Managed Governance Operations</title>
-  <meta name="description" content="Soter Labs runs governance operations for on-chain organizations. Biweekly spell cycles, capital monitoring, Atlas compliance, and deployment coordination — handled end to end across the Sky ecosystem.">
-  <meta property="og:title" content="Operations, handled. — Soter Labs">
+  <title>Soter Labs · Managed Governance Operations</title>
+  <meta name="description" content="Soter Labs runs governance operations for on-chain organizations. Biweekly spell cycles, capital monitoring, Atlas compliance, and deployment coordination handled end to end across the Sky ecosystem.">
+  <meta property="og:title" content="Operations, handled · Soter Labs">
   <meta property="og:description" content="Managed governance services for on-chain organizations. Operating 2 Genesis Executor Agents across the Sky Ecosystem.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://soterlabs.com/">
@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="assets/images/logo_wo_name_transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Deltha';
@@ -47,8 +47,8 @@
       --color-border-subtle-strong: rgba(240, 235, 224, 0.12);
       --color-border-gold-hover: rgba(197, 165, 90, 0.35);
 
-      --font-heading: 'Space Grotesk', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --font-display: 'Deltha', 'Helvetica Neue', Arial, sans-serif;
+      --font-body: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
 
       --space-1: 4px;
       --space-2: 8px;
@@ -72,8 +72,47 @@
       font-size: 16px;
       line-height: 1.65;
       color: var(--color-text-on-dark);
-      background: #121212;
+      background: #07070c;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Cosmos background ── */
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Nebula color clouds */
+    body::before {
+      background:
+        radial-gradient(ellipse 70% 50% at 18% 22%, rgba(90, 55, 130, 0.22), transparent 60%),
+        radial-gradient(ellipse 60% 45% at 82% 58%, rgba(150, 105, 55, 0.18), transparent 60%),
+        radial-gradient(ellipse 90% 55% at 50% 100%, rgba(45, 25, 85, 0.25), transparent 60%),
+        radial-gradient(ellipse 40% 35% at 70% 15%, rgba(197, 165, 90, 0.10), transparent 60%);
+    }
+
+    /* Starfield */
+    body::after {
+      background-image:
+        radial-gradient(1.2px 1.2px at 15px 25px, rgba(240, 235, 224, 0.85), transparent),
+        radial-gradient(1px 1px at 65px 75px, rgba(197, 165, 90, 0.65), transparent),
+        radial-gradient(1px 1px at 130px 42px, rgba(240, 235, 224, 0.55), transparent),
+        radial-gradient(1.5px 1.5px at 88px 160px, rgba(240, 235, 224, 0.9), transparent),
+        radial-gradient(1px 1px at 205px 120px, rgba(197, 165, 90, 0.55), transparent),
+        radial-gradient(1.3px 1.3px at 248px 200px, rgba(240, 235, 224, 0.75), transparent),
+        radial-gradient(1px 1px at 32px 195px, rgba(240, 235, 224, 0.45), transparent),
+        radial-gradient(1.1px 1.1px at 170px 230px, rgba(197, 165, 90, 0.5), transparent),
+        radial-gradient(1px 1px at 270px 60px, rgba(240, 235, 224, 0.6), transparent),
+        radial-gradient(1.4px 1.4px at 115px 110px, rgba(240, 235, 224, 0.7), transparent);
+      background-size: 300px 300px;
+      background-repeat: repeat;
+      opacity: 0.75;
     }
 
     /* ── Nav ── */
@@ -84,7 +123,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(18, 18, 18, 0.7);
+      background: rgba(10, 10, 15, 0.65);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--color-border-subtle-strong);
@@ -104,12 +143,12 @@
       display: flex;
       align-items: center;
       gap: var(--space-3);
-      font-family: 'Deltha', sans-serif;
-      font-size: 20px;
-      font-weight: normal;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
       color: var(--color-gold);
       text-decoration: none;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -119,9 +158,7 @@
     }
 
     .nav__wordmark span {
-      font-family: 'Deltha', sans-serif;
-      font-weight: normal;
-      letter-spacing: 0.12em;
+      font-weight: 600;
       color: var(--color-gold);
     }
 
@@ -133,7 +170,6 @@
     }
 
     .nav__link {
-      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 400;
       color: var(--color-text-on-dark-muted);
@@ -146,7 +182,6 @@
     }
 
     .nav__cta {
-      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 500;
       color: var(--color-warm-white);
@@ -194,45 +229,44 @@
       overflow: hidden;
     }
 
-    /* Shield visual */
-    .hero__shield-wrap {
+    /* Halo visual behind content */
+    .hero__halo-wrap {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -58%);
-      width: 520px;
-      height: 600px;
+      transform: translate(-50%, -55%);
+      width: 640px;
+      height: 640px;
       pointer-events: none;
       z-index: 0;
       perspective: 900px;
     }
 
-    /* Ambient glow behind logo */
-    .hero__shield-glow {
+    .hero__halo-glow {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 420px;
-      height: 420px;
+      width: 520px;
+      height: 520px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(197, 165, 90, 0.2) 0%, rgba(160, 130, 60, 0.08) 40%, transparent 70%);
-      filter: blur(60px);
+      background: radial-gradient(circle, rgba(197, 165, 90, 0.28) 0%, rgba(160, 130, 60, 0.1) 40%, transparent 72%);
+      filter: blur(70px);
     }
 
-    .hero__shield-glow-accent {
+    .hero__halo-glow-accent {
       position: absolute;
-      top: 30%;
+      top: 32%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 200px;
-      height: 200px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 185, 106, 0.12) 0%, transparent 70%);
-      filter: blur(30px);
+      background: radial-gradient(circle, rgba(212, 185, 106, 0.16) 0%, transparent 70%);
+      filter: blur(35px);
     }
 
-    /* Orbital rings */
+    /* Orbital halo rings */
     .hero__ring {
       position: absolute;
       top: 50%;
@@ -243,36 +277,35 @@
     }
 
     .hero__ring--1 {
-      width: 440px;
-      height: 440px;
-      margin-top: -220px;
-      margin-left: -220px;
-      transform: rotateX(68deg) rotateZ(-15deg);
-      border-color: rgba(197, 165, 90, 0.1);
-      animation: ring-rotate-1 30s linear infinite;
-    }
-
-    .hero__ring--2 {
-      width: 390px;
-      height: 390px;
-      margin-top: -195px;
-      margin-left: -195px;
-      transform: rotateX(62deg) rotateZ(25deg);
-      border-color: rgba(197, 165, 90, 0.07);
-      animation: ring-rotate-2 40s linear infinite;
-    }
-
-    .hero__ring--3 {
       width: 480px;
       height: 480px;
       margin-top: -240px;
       margin-left: -240px;
+      transform: rotateX(68deg) rotateZ(-15deg);
+      border-color: rgba(197, 165, 90, 0.12);
+      animation: ring-rotate-1 30s linear infinite;
+    }
+
+    .hero__ring--2 {
+      width: 420px;
+      height: 420px;
+      margin-top: -210px;
+      margin-left: -210px;
+      transform: rotateX(62deg) rotateZ(25deg);
+      border-color: rgba(197, 165, 90, 0.08);
+      animation: ring-rotate-2 40s linear infinite;
+    }
+
+    .hero__ring--3 {
+      width: 540px;
+      height: 540px;
+      margin-top: -270px;
+      margin-left: -270px;
       transform: rotateX(72deg) rotateZ(-40deg);
-      border-color: rgba(197, 165, 90, 0.05);
+      border-color: rgba(197, 165, 90, 0.06);
       animation: ring-rotate-3 50s linear infinite;
     }
 
-    /* Ring light dots */
     .hero__ring--1::before,
     .hero__ring--2::before {
       content: '';
@@ -280,8 +313,8 @@
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: rgba(197, 165, 90, 0.4);
-      box-shadow: 0 0 8px rgba(197, 165, 90, 0.3);
+      background: rgba(197, 165, 90, 0.45);
+      box-shadow: 0 0 8px rgba(197, 165, 90, 0.35);
     }
 
     .hero__ring--1::before {
@@ -315,8 +348,8 @@
       width: 2px;
       height: 2px;
       border-radius: 50%;
-      background: rgba(197, 165, 90, 0.35);
-      box-shadow: 0 0 6px rgba(197, 165, 90, 0.2);
+      background: rgba(197, 165, 90, 0.4);
+      box-shadow: 0 0 6px rgba(197, 165, 90, 0.25);
     }
 
     .hero__particle--1 { top: 25%; left: 18%; animation: float-1 6s ease-in-out infinite; }
@@ -327,12 +360,12 @@
 
     @keyframes float-1 {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.4; }
-      50% { transform: translateY(-12px) translateX(6px); opacity: 0.8; }
+      50% { transform: translateY(-12px) translateX(6px); opacity: 0.85; }
     }
 
     @keyframes float-2 {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-      50% { transform: translateY(10px) translateX(-8px); opacity: 0.7; }
+      50% { transform: translateY(10px) translateX(-8px); opacity: 0.75; }
     }
 
     @keyframes float-3 {
@@ -340,52 +373,36 @@
       50% { transform: translateY(-8px) translateX(-5px); opacity: 0.9; }
     }
 
-    /* Ambient background effects */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(30, 30, 30, 0) 0%, #121212 70%),
-        radial-gradient(circle at 50% 50%, rgba(46, 40, 32, 0.15) 0%, transparent 50%);
-      z-index: 1;
-    }
-
     .hero__content {
       position: relative;
       z-index: 2;
-      max-width: 720px;
+      max-width: 780px;
       text-align: center;
     }
 
     .hero__label {
-      font-family: 'Deltha', sans-serif;
-      font-size: clamp(14px, 1.8vw, 18px);
-      font-weight: normal;
-      line-height: 1.2;
-      letter-spacing: 0.22em;
+      font-family: var(--font-display);
+      font-size: clamp(48px, 9vw, 96px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-gold);
       margin-bottom: var(--space-6);
+      white-space: nowrap;
     }
 
     .hero__label span {
-      font-family: 'Deltha', sans-serif;
-      font-weight: normal;
-      font-size: 1em;
-      letter-spacing: 0.22em;
+      font-weight: 700;
       color: var(--color-gold);
     }
 
     .hero__tagline {
-      font-family: var(--font-heading);
-      font-size: clamp(34px, 5.5vw, 56px);
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.2vw, 32px);
       font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.015em;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
       color: var(--color-text-on-dark);
       margin-bottom: var(--space-6);
     }
@@ -393,28 +410,24 @@
     .hero__tagline a {
       color: var(--color-gold);
       text-decoration: none;
-      border-bottom: 1px solid rgba(197, 165, 90, 0.3);
-      transition: border-color 0.2s ease, color 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .hero__tagline a:hover {
       color: var(--color-gold-light);
-      border-color: rgba(212, 185, 106, 0.75);
     }
 
     .hero__subtitle {
-      font-family: var(--font-heading);
-      font-size: clamp(17px, 2.2vw, 22px);
-      font-weight: 500;
-      line-height: 1.45;
+      font-size: clamp(14px, 1.6vw, 17px);
+      font-weight: 400;
+      line-height: 1.5;
       color: var(--color-text-on-dark-muted);
       margin-bottom: var(--space-12);
-      letter-spacing: -0.005em;
+      letter-spacing: 0;
     }
 
     .hero__cta {
       display: inline-block;
-      font-family: var(--font-body);
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.08em;
@@ -434,57 +447,11 @@
       border-color: rgba(197, 165, 90, 0.6);
     }
 
-    /* ── Cards ── */
-
-    .cards {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-8);
-      margin-top: -80px;
-    }
-
-    .cards__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-6);
-    }
-
-    .card {
-      background: rgba(30, 30, 30, 0.5);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: 8px;
-      padding: var(--space-6);
-      transition: border-color 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: var(--color-border-gold-hover);
-    }
-
-    .card__title {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.25;
-      color: var(--color-text-on-dark);
-      margin-bottom: var(--space-4);
-    }
-
-    .card__body {
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--color-text-on-dark-muted);
-    }
-
     /* ── Sections ── */
 
     .section {
       padding: var(--space-24) var(--space-8);
+      position: relative;
     }
 
     .section__inner {
@@ -493,53 +460,134 @@
     }
 
     .section__label {
-      font-family: var(--font-heading);
-      font-size: clamp(28px, 4vw, 36px);
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.01em;
       color: var(--color-text-on-dark);
       margin-bottom: var(--space-12);
+      text-align: center;
     }
 
-    .cards__eyebrow {
-      font-family: var(--font-body);
+    .section__eyebrow {
+      font-family: var(--font-display);
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-gold);
-      margin-bottom: var(--space-6);
+      margin-bottom: var(--space-3);
       text-align: center;
+    }
+
+    /* ── Who we are ── */
+
+    .about {
+      text-align: center;
+    }
+
+    .about__body {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--color-text-on-dark-muted);
+      font-style: italic;
+    }
+
+    /* ── Values ── */
+
+    .values__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    .value-card {
+      background: rgba(30, 30, 30, 0.4);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 8px;
+      padding: var(--space-6);
+      text-align: center;
+      transition: border-color 0.3s ease;
+    }
+
+    .value-card:hover {
+      border-color: var(--color-border-gold-hover);
+    }
+
+    .value-card__title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-on-dark);
+      margin-bottom: var(--space-3);
+    }
+
+    .value-card__body {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text-on-dark-muted);
     }
 
     /* ── Services ── */
 
-    .services {
-      padding-top: var(--space-24);
-    }
-
     .services__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .services__subsection {
+      text-align: center;
+    }
+
+    .services__subtitle {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-gold);
+      margin-bottom: var(--space-3);
+      letter-spacing: 0.02em;
+    }
+
+    .services__definition {
+      max-width: 640px;
+      margin: 0 auto var(--space-8);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text-on-dark-muted);
+    }
+
+    .services__card-wrap {
+      display: flex;
+      justify-content: center;
     }
 
     .service-card {
+      max-width: 560px;
+      width: 100%;
       border: 1px solid var(--color-border-subtle);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: var(--space-8);
       background: rgba(30, 30, 30, 0.3);
-      transition: border-color 0.3s ease;
+      text-align: left;
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
 
     .service-card:hover {
       border-color: var(--color-border-gold-hover);
+      transform: translateY(-2px);
     }
 
     .service-card__title {
-      font-family: var(--font-heading);
-      font-size: 20px;
+      font-family: var(--font-display);
+      font-size: 22px;
       font-weight: 600;
       line-height: 1.25;
       color: var(--color-text-on-dark);
@@ -552,33 +600,9 @@
       color: var(--color-text-on-dark-muted);
     }
 
-    .services__subsection {
-      margin-bottom: var(--space-12);
-    }
-
-    .services__subsection:last-child {
-      margin-bottom: 0;
-    }
-
-    .services__subtitle {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--color-text-on-dark);
-      margin-bottom: var(--space-6);
-    }
-
-    .services__subtitle em {
-      font-style: normal;
-      font-weight: 400;
-      color: var(--color-text-on-dark-muted);
-      font-size: 14px;
-    }
-
-    /* ── Trust Strip ── */
+    /* ── Proof of work ── */
 
     .trust {
-      text-align: center;
       padding: var(--space-24) var(--space-8);
       border-top: 1px solid var(--color-border-subtle);
       border-bottom: 1px solid var(--color-border-subtle);
@@ -588,101 +612,141 @@
     .trust__inner {
       max-width: 1200px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    .trust__eyebrow {
-      font-family: var(--font-body);
-      font-size: 12px;
+    .trust__stats {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.6vw, 26px);
       font-weight: 500;
-      letter-spacing: 0.12em;
+      line-height: 1.35;
+      letter-spacing: -0.005em;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: var(--space-16);
+    }
+
+    .trust__stats span {
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .agents-group {
+      margin-bottom: var(--space-12);
+    }
+
+    .agents-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .agents-group__label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--color-gold);
       margin-bottom: var(--space-6);
     }
 
-    .trust__stats {
-      font-family: var(--font-heading);
-      font-size: clamp(24px, 3.5vw, 34px);
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      color: var(--color-text-on-dark);
-      margin-bottom: var(--space-8);
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 180px);
+      gap: var(--space-6);
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .trust__stats span {
-      color: var(--color-gold);
+    .agent-card {
+      position: relative;
+      background: rgba(30, 30, 30, 0.35);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 10px;
+      padding: var(--space-6);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease, background 0.3s ease;
     }
 
-    .trust__clients {
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--color-text-on-dark-muted);
-      letter-spacing: 0.02em;
-      margin-bottom: var(--space-2);
+    .agent-card:hover {
+      border-color: var(--color-border-gold-hover);
+      background: rgba(46, 40, 32, 0.35);
     }
 
-    .trust__clients a {
-      color: var(--color-text-on-dark);
+    .agent-card__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 56px;
       text-decoration: none;
-      transition: color 0.2s ease;
     }
 
-    .trust__clients a:hover {
-      color: var(--color-gold);
+    .agent-card__logo img {
+      max-height: 56px;
+      max-width: 85%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.92;
+      transition: opacity 0.2s ease;
     }
 
-    .trust__clients strong {
-      font-weight: 600;
-      color: var(--color-gold);
+    .agent-card__logo--avatar img {
+      width: 56px;
+      height: 56px;
+      max-width: 56px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
-    /* ── About ── */
-
-    .about__body {
-      max-width: 680px;
-      font-size: 18px;
-      line-height: 1.65;
-      color: var(--color-text-on-dark-muted);
-      margin-bottom: var(--space-8);
+    .agent-card__logo:hover img {
+      opacity: 1;
     }
 
-    .about__body--quote {
-      font-style: italic;
-      font-size: 16px;
-    }
-
-    .about__cta {
-      font-family: var(--font-body);
+    .agent-card__text {
       font-size: 16px;
       font-weight: 500;
-      color: var(--color-gold);
-      text-decoration: none;
-      transition: color 0.2s ease;
+      color: var(--color-text-on-dark-muted);
+      letter-spacing: 0.02em;
     }
 
-    .about__cta:hover {
-      color: var(--color-gold-light);
+    .agent-card__social {
+      position: absolute;
+      top: var(--space-2);
+      right: var(--space-2);
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-on-dark-muted);
+      border-radius: 4px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .agent-card__social:hover {
+      color: var(--color-gold);
+      background: rgba(197, 165, 90, 0.08);
+    }
+
+    .agent-card__social svg {
+      width: 13px;
+      height: 13px;
     }
 
     /* ── Contact ── */
 
     .contact {
       border-top: 1px solid var(--color-border-subtle);
+      text-align: center;
     }
 
     .contact__content {
-      max-width: 520px;
-    }
-
-    .contact__title {
-      font-family: var(--font-heading);
-      font-size: 36px;
-      font-weight: 600;
-      line-height: 1.25;
-      color: var(--color-text-on-dark);
-      margin-bottom: var(--space-6);
+      max-width: 560px;
+      margin: 0 auto;
     }
 
     .contact__body {
@@ -715,7 +779,7 @@
 
     .footer {
       border-top: 1px solid var(--color-border-subtle);
-      padding: var(--space-8) var(--space-8);
+      padding: var(--space-8);
     }
 
     .footer__inner {
@@ -724,11 +788,41 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: var(--space-6);
     }
 
     .footer__copy {
       font-size: 13px;
       color: var(--color-text-muted);
+    }
+
+    .footer__social {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .footer__social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: var(--color-text-on-dark-muted);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 6px;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .footer__social-link:hover {
+      color: var(--color-gold);
+      border-color: var(--color-border-gold-hover);
+      background: rgba(197, 165, 90, 0.08);
+    }
+
+    .footer__social-link svg {
+      width: 15px;
+      height: 15px;
     }
 
     .footer__link {
@@ -770,12 +864,12 @@
       transform: translateY(0);
     }
 
-    .hero__shield-wrap {
+    .hero__halo-wrap {
       opacity: 0;
       transition: opacity 1.5s ease;
     }
 
-    .hero.loaded .hero__shield-wrap {
+    .hero.loaded .hero__halo-wrap {
       opacity: 1;
     }
 
@@ -810,7 +904,7 @@
 
       .fade-in,
       .hero .fade-in,
-      .hero__shield-wrap {
+      .hero__halo-wrap {
         transition: none;
         opacity: 1;
         transform: none;
@@ -826,7 +920,7 @@
         top: 64px;
         left: 0;
         right: 0;
-        background: rgba(18, 18, 18, 0.95);
+        background: rgba(10, 10, 15, 0.95);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--color-border-subtle-strong);
         flex-direction: column;
@@ -847,40 +941,37 @@
         padding-top: calc(var(--space-16) + 64px);
       }
 
-      .hero__shield-wrap {
-        width: 340px;
-        height: 400px;
+      .hero__halo-wrap {
+        width: 380px;
+        height: 440px;
       }
 
-      .hero__ring--1 { width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; }
-      .hero__ring--2 { width: 260px; height: 260px; margin-top: -130px; margin-left: -130px; }
-      .hero__ring--3 { width: 330px; height: 330px; margin-top: -165px; margin-left: -165px; }
+      .hero__ring--1 { width: 320px; height: 320px; margin-top: -160px; margin-left: -160px; }
+      .hero__ring--2 { width: 280px; height: 280px; margin-top: -140px; margin-left: -140px; }
+      .hero__ring--3 { width: 360px; height: 360px; margin-top: -180px; margin-left: -180px; }
 
-      .cards {
-        margin-top: -40px;
-      }
-
-      .cards__grid {
+      .values__grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .services__grid {
         grid-template-columns: 1fr;
-        gap: var(--space-4);
+        gap: var(--space-12);
       }
 
-      .section {
+      .agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section,
+      .trust {
         padding: var(--space-16) var(--space-6);
       }
 
       .footer__inner {
         flex-direction: column;
-        gap: var(--space-6);
+        gap: var(--space-4);
         text-align: center;
-      }
-
-      .trust {
-        padding: var(--space-12) var(--space-6);
       }
     }
   </style>
@@ -897,9 +988,10 @@
         <span></span>
       </button>
       <ul class="nav__links">
-        <li><a href="#services" class="nav__link">Services</a></li>
         <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li><a href="#values" class="nav__link">Values</a></li>
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#proof" class="nav__link">Proof of work</a></li>
         <li><a href="#contact" class="nav__cta">Get in touch &rarr;</a></li>
       </ul>
     </div>
@@ -907,10 +999,9 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <!-- Decorative visual -->
-    <div class="hero__shield-wrap" aria-hidden="true">
-      <div class="hero__shield-glow"></div>
-      <div class="hero__shield-glow-accent"></div>
+    <div class="hero__halo-wrap" aria-hidden="true">
+      <div class="hero__halo-glow"></div>
+      <div class="hero__halo-glow-accent"></div>
 
       <div class="hero__ring hero__ring--1"></div>
       <div class="hero__ring hero__ring--2"></div>
@@ -933,99 +1024,144 @@
     </div>
   </section>
 
-  <!-- Values -->
-  <div class="cards">
-    <p class="cards__eyebrow fade-in">Our Values</p>
-    <div class="cards__grid">
-      <div class="card fade-in">
-        <h3 class="card__title">Transparency</h3>
-        <p class="card__body">We make opaque processes visible.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 class="card__title">Reliability</h3>
-        <p class="card__body">We deliver on our commitments — every time.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 class="card__title">Accountability</h3>
-        <p class="card__body">We own our work end-to-end.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 class="card__title">Simplicity</h3>
-        <p class="card__body">Complex operations shouldn't feel complex.</p>
+  <!-- Who we are -->
+  <section class="section about" id="about">
+    <div class="section__inner">
+      <h2 class="section__label fade-in">Who we are</h2>
+      <p class="about__body fade-in">In ancient Greek mythology, Soter was the personified spirit of safety, preservation, and deliverance from harm. We carry that name because protecting what matters is at the heart of who we are.</p>
+    </div>
+  </section>
+
+  <!-- Our values -->
+  <section class="section values" id="values">
+    <div class="section__inner">
+      <h2 class="section__label fade-in">Our values</h2>
+      <div class="values__grid">
+        <div class="value-card fade-in">
+          <h3 class="value-card__title">Transparency</h3>
+          <p class="value-card__body">We make opaque processes visible.</p>
+        </div>
+        <div class="value-card fade-in">
+          <h3 class="value-card__title">Reliability</h3>
+          <p class="value-card__body">We deliver on our commitments, every time.</p>
+        </div>
+        <div class="value-card fade-in">
+          <h3 class="value-card__title">Accountability</h3>
+          <p class="value-card__body">We own our work end to end.</p>
+        </div>
+        <div class="value-card fade-in">
+          <h3 class="value-card__title">Simplicity</h3>
+          <p class="value-card__body">Complex operations shouldn't feel complex.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Services -->
   <section class="section services" id="services">
     <div class="section__inner">
-      <p class="section__label fade-in">What we do</p>
+      <h2 class="section__label fade-in">Services</h2>
 
-      <div class="services__subsection">
-        <p class="services__subtitle fade-in">For Agents <em>— ongoing operational services for active on-chain agents</em></p>
-        <div class="services__grid">
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Recurring Operations</h3>
-            <p class="service-card__body">Biweekly spell cycles, capital monitoring, deployment coordination, and routine governance workflows — handled end to end.</p>
-          </div>
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Technical Operations</h3>
-            <p class="service-card__body">Spell crafting, spell reviewing, smart contract deployment, and technical infrastructure management for on-chain agents.</p>
-          </div>
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Governance &amp; Compliance</h3>
-            <p class="service-card__body">Atlas compliance, regulatory alignment, audit trail maintenance, and transparent reporting for all agent activities.</p>
+      <div class="services__grid">
+        <div class="services__subsection fade-in">
+          <p class="services__subtitle">For Agents</p>
+          <p class="services__definition">Autonomous on-chain organizations operating within the Sky Ecosystem, each with a defined mandate, treasury, and governance surface.</p>
+          <div class="services__card-wrap">
+            <div class="service-card">
+              <h3 class="service-card__title">GovOps</h3>
+              <p class="service-card__body">End to end governance operations for live agents: biweekly spell cycles, spell crafting and review, capital monitoring, deployment coordination, Atlas compliance, and transparent reporting across every cycle.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="services__subsection">
-        <p class="services__subtitle fade-in">For Ecosystems <em>— incubation, strategy, and transformation for organizations launching or evolving agents</em></p>
-        <div class="services__grid">
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Agent Incubation</h3>
-            <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go-live.</p>
-          </div>
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Strategy &amp; Leadership</h3>
-            <p class="service-card__body">Roadmap planning and cross-entity coordination for on-chain organizations navigating structural change.</p>
-          </div>
-          <div class="service-card fade-in">
-            <h3 class="service-card__title">Organizational Transformation</h3>
-            <p class="service-card__body">Restructuring teams, processes, and governance models to align with evolving protocol requirements.</p>
+        <div class="services__subsection fade-in">
+          <p class="services__subtitle">For Ecosystems</p>
+          <p class="services__definition">Protocol organizations launching new agent based organizations or restructuring existing ones.</p>
+          <div class="services__card-wrap">
+            <div class="service-card">
+              <h3 class="service-card__title">Agent Incubation</h3>
+              <p class="service-card__body">Entity formation, governance design, legal structure, and operational playbooks from concept to go live. We stand up new agents and ready them for autonomous operation.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Trust Strip -->
-  <section class="trust">
-    <div class="trust__inner fade-in">
-      <p class="trust__eyebrow">Proof of work</p>
-      <p class="trust__stats">Operating <span>2</span> Genesis Executor Agents across the Sky Ecosystem</p>
-      <p class="trust__clients"><strong>Ozone OEA:</strong> <a href="https://obex.xyz/" target="_blank" rel="noopener">Obex</a> · <a href="https://sky.money/" target="_blank" rel="noopener">Skybase</a> · <a href="https://obex.xyz/" target="_blank" rel="noopener">Pattern</a> · <a href="#" target="_blank" rel="noopener">Launch Agent 6</a> · <a href="#" target="_blank" rel="noopener">Launch Agent 7</a></p>
-      <p class="trust__clients"><strong>Amatsu OEA:</strong> <a href="https://spark.fi" target="_blank" rel="noopener">Spark</a> · <a href="https://www.grove.finance/" target="_blank" rel="noopener">Grove</a> · <a href="http://keel.fi/" target="_blank" rel="noopener">Keel</a></p>
+  <!-- Proof of work -->
+  <section class="trust" id="proof">
+    <div class="trust__inner">
+      <h2 class="section__label fade-in">Proof of work</h2>
+      <p class="trust__stats fade-in">Operating <span>2</span> Genesis Executor Agents across the Sky Ecosystem</p>
+
+      <div class="agents-group fade-in">
+        <p class="agents-group__label">Ozone OEA</p>
+        <div class="agents-grid">
+          <div class="agent-card">
+            <a href="https://obex.xyz/" target="_blank" rel="noopener" class="agent-card__logo agent-card__logo--avatar" aria-label="Obex">
+              <img src="assets/images/obex.jpg" alt="Obex">
+            </a>
+            <a href="https://x.com/obexincubator" target="_blank" rel="noopener" class="agent-card__social" aria-label="Obex on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <div class="agent-card">
+            <a href="https://sky.money/" target="_blank" rel="noopener" class="agent-card__logo" aria-label="Skybase">
+              <img src="assets/images/sky.svg" alt="Skybase">
+            </a>
+            <a href="https://x.com/SkyMoney" target="_blank" rel="noopener" class="agent-card__social" aria-label="Skybase on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <div class="agent-card">
+            <span class="agent-card__text">Pattern</span>
+          </div>
+          <div class="agent-card">
+            <span class="agent-card__text">Launch Agent 6</span>
+          </div>
+          <div class="agent-card">
+            <span class="agent-card__text">Launch Agent 7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agents-group fade-in">
+        <p class="agents-group__label">Amatsu OEA</p>
+        <div class="agents-grid">
+          <div class="agent-card">
+            <a href="https://spark.fi" target="_blank" rel="noopener" class="agent-card__logo" aria-label="Spark">
+              <img src="assets/images/spark.svg" alt="Spark">
+            </a>
+            <a href="https://x.com/sparkdotfi" target="_blank" rel="noopener" class="agent-card__social" aria-label="Spark on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <div class="agent-card">
+            <a href="https://www.grove.finance/" target="_blank" rel="noopener" class="agent-card__logo agent-card__logo--avatar" aria-label="Grove">
+              <img src="assets/images/grove.jpg" alt="Grove">
+            </a>
+            <a href="https://x.com/grovedotfinance" target="_blank" rel="noopener" class="agent-card__social" aria-label="Grove on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <div class="agent-card">
+            <a href="https://keel.fi/" target="_blank" rel="noopener" class="agent-card__logo agent-card__logo--avatar" aria-label="Keel">
+              <img src="assets/images/keel.png" alt="Keel">
+            </a>
+            <a href="https://x.com/keel_fi" target="_blank" rel="noopener" class="agent-card__social" aria-label="Keel on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="section__inner">
-      <p class="section__label fade-in">Who we are</p>
-      <p class="about__body fade-in">Soter Labs is the trusted GovOps provider building the Ozone Executor Agent, and now operates the Amatsu Executor Agent. We design and manage the scalable frameworks and processes that ensure the compliant, transparent, and accountable operation of Sky's Agents.</p>
-      <p class="about__body about__body--quote fade-in">In ancient Greek mythology, Soter was the personified spirit of safety, preservation, and deliverance from harm. We carry that name because protecting what matters — through reliable operations, transparent processes, and accountable execution — is at the heart of everything we do.</p>
-      <p class="about__body fade-in">Our goal is to execute the Sky's mandate — scaling the ecosystem from 10B to 1T USDS — by providing reliable, world-class operational services for its advanced DeFi primitives.</p>
-    </div>
-  </section>
-
-
 
   <!-- Contact -->
   <section class="section contact" id="contact">
     <div class="section__inner">
       <div class="contact__content fade-in">
-        <h2 class="contact__title">Get in touch</h2>
+        <h2 class="section__label">Get in touch</h2>
         <p class="contact__body">Tell us about your organization and what you're navigating.</p>
         <a href="mailto:govops@soterlabs.com" class="btn">govops@soterlabs.com &rarr;</a>
       </div>
@@ -1036,20 +1172,25 @@
   <footer class="footer">
     <div class="footer__inner">
       <span class="footer__copy">&copy; <span id="footer-year">2026</span> Soter Labs. All rights reserved.</span>
+      <div class="footer__social">
+        <a href="https://github.com/soterlabs" target="_blank" rel="noopener" class="footer__social-link" aria-label="Soter Labs on GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.07 3.29 9.36 7.86 10.88.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.19-1.49 3.14-1.18 3.14-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.04.78 2.1 0 1.52-.01 2.74-.01 3.12 0 .31.21.67.8.55C20.21 21.36 23.5 17.07 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+        </a>
+        <a href="https://x.com/soterlabs" target="_blank" rel="noopener" class="footer__social-link" aria-label="Soter Labs on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
       <a href="mailto:govops@soterlabs.com" class="footer__link">govops@soterlabs.com</a>
     </div>
   </footer>
 
   <script>
-    // Auto-update copyright year
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-    // Hero load animation
     window.addEventListener('load', function () {
       document.querySelector('.hero').classList.add('loaded');
     });
 
-    // Intersection Observer for scroll fade-in
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
