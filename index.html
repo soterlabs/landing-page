@@ -120,6 +120,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 80px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -291,15 +292,33 @@
       border: none;
       cursor: pointer;
       padding: var(--space-2);
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
     .nav__mobile-toggle span {
       display: block;
-      width: 20px;
+      width: 22px;
       height: 2px;
       background: var(--color-gold);
-      margin: 4px 0;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      margin: 3px 0;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    .nav__mobile-toggle.open span:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .nav__mobile-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__mobile-toggle.open span:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
     }
 
     /* ── Hero ── */
@@ -307,6 +326,7 @@
     .hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1020,6 +1040,10 @@
     /* ── Responsive ── */
 
     @media (max-width: 768px) {
+      .nav__inner {
+        padding: 0 var(--space-6);
+      }
+
       .nav__links {
         display: none;
         position: absolute;
@@ -1028,23 +1052,46 @@
         right: 0;
         background: var(--bg-nav-mobile);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--color-border-subtle-strong);
         flex-direction: column;
-        padding: var(--space-6);
-        gap: var(--space-6);
+        align-items: stretch;
+        padding: var(--space-4) var(--space-6) var(--space-6);
+        gap: var(--space-2);
       }
 
       .nav__links.open {
         display: flex;
       }
 
-      .nav__mobile-toggle {
+      .nav__links li {
+        width: 100%;
+      }
+
+      .nav__link {
         display: block;
+        width: 100%;
+        font-size: 16px;
+        padding: var(--space-3) 0;
+      }
+
+      .nav__cta {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: var(--space-3) var(--space-4);
+        margin-top: var(--space-2);
+      }
+
+      .nav__mobile-toggle {
+        display: flex;
       }
 
       .hero {
         min-height: 85vh;
-        padding-top: calc(var(--space-16) + 64px);
+        min-height: 85dvh;
+        padding: var(--space-16) var(--space-6);
+        padding-top: calc(var(--space-12) + 64px);
       }
 
       .hero__halo-wrap {
@@ -1080,6 +1127,74 @@
         text-align: center;
       }
     }
+
+    @media (max-width: 480px) {
+      .nav__inner {
+        padding: 0 var(--space-4);
+      }
+
+      .nav__wordmark {
+        font-size: 16px;
+        gap: var(--space-2);
+      }
+
+      .nav__wordmark img {
+        height: 28px;
+      }
+
+      .hero {
+        padding: var(--space-12) var(--space-4);
+        padding-top: calc(var(--space-8) + 64px);
+      }
+
+      .hero__halo-wrap {
+        width: 360px;
+        height: 360px;
+      }
+
+      .hero__ring--1 { width: 360px; height: 360px; margin-top: -180px; margin-left: -180px; }
+      .hero__ring--2 { width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; }
+      .hero__ring--3 { width: 420px; height: 420px; margin-top: -210px; margin-left: -210px; }
+
+      .hero__halo-glow {
+        width: 360px;
+        height: 360px;
+      }
+
+      .hero__label {
+        white-space: normal;
+      }
+
+      .values__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .agents-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        max-width: 320px;
+      }
+
+      .section,
+      .trust {
+        padding: var(--space-12) var(--space-4);
+      }
+
+      .section__label {
+        margin-bottom: var(--space-8);
+      }
+
+      .footer {
+        padding: var(--space-6) var(--space-4);
+      }
+
+      .service-card {
+        padding: var(--space-6);
+      }
+
+      .btn {
+        padding: 14px var(--space-6);
+      }
+    }
   </style>
   <script>
     (function () {
@@ -1096,12 +1211,12 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="/" class="nav__wordmark"><img src="assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
-      <button class="nav__mobile-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav__links').classList.toggle('open')">
+      <button class="nav__mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <ul class="nav__links">
+      <ul class="nav__links" id="nav-links">
         <li><a href="#about" class="nav__link">About</a></li>
         <li><a href="#values" class="nav__link">Values</a></li>
         <li><a href="#services" class="nav__link">Services</a></li>
@@ -1314,6 +1429,22 @@
         var next = current === 'light' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
+      });
+    }
+
+    var mobileToggle = document.querySelector('.nav__mobile-toggle');
+    var navLinks = document.querySelector('.nav__links');
+    if (mobileToggle && navLinks) {
+      var setMenu = function (open) {
+        navLinks.classList.toggle('open', open);
+        mobileToggle.classList.toggle('open', open);
+        mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      mobileToggle.addEventListener('click', function () {
+        setMenu(!navLinks.classList.contains('open'));
+      });
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setMenu(false); });
       });
     }
 
