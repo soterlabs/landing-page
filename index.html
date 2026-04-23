@@ -86,6 +86,8 @@
       --space-12: 48px;
       --space-16: 64px;
       --space-24: 96px;
+
+      --nav-h: 64px;
     }
 
     :root[data-theme="light"] {
@@ -120,9 +122,17 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: calc(var(--nav-h) + var(--space-2));
+      /* Reserve scrollbar space on both sides so body stays visually centered
+         in the viewport. Trade-off: costs ~15px of usable width on the left
+         on platforms with classic scrollbars (Linux/Windows Chrome/Firefox).
+         No-op on macOS/touch (overlay scrollbars). */
+      scrollbar-gutter: stable both-edges;
+      scrollbar-color: rgba(197, 165, 90, 0.4) transparent;
+      background: var(--bg-body);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background 0.3s ease;
     }
 
     body {
@@ -131,8 +141,6 @@
       line-height: 1.65;
       color: var(--color-text-on-dark);
       background: var(--bg-body);
-      overflow-x: hidden;
-      position: relative;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
@@ -173,10 +181,8 @@
     /* ── Nav ── */
 
     .nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 100;
       background: var(--bg-nav);
       backdrop-filter: blur(20px);
@@ -189,7 +195,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 var(--space-8);
-      height: 64px;
+      height: var(--nav-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -221,7 +227,7 @@
     .nav__links {
       display: flex;
       align-items: center;
-      gap: var(--space-8);
+      gap: clamp(16px, 2vw, 32px);
       list-style: none;
     }
 
@@ -325,14 +331,13 @@
 
     .hero {
       position: relative;
-      min-height: 100vh;
-      min-height: 100dvh;
+      min-height: calc(100vh - var(--nav-h));
+      min-height: calc(100dvh - var(--nav-h));
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: var(--space-24) var(--space-8);
-      padding-top: calc(var(--space-24) + 64px);
       overflow: hidden;
     }
 
@@ -1047,7 +1052,7 @@
       .nav__links {
         display: none;
         position: absolute;
-        top: 64px;
+        top: var(--nav-h);
         left: 0;
         right: 0;
         background: var(--bg-nav-mobile);
@@ -1088,10 +1093,9 @@
       }
 
       .hero {
-        min-height: 85vh;
-        min-height: 85dvh;
-        padding: var(--space-16) var(--space-6);
-        padding-top: calc(var(--space-12) + 64px);
+        min-height: calc(85vh - var(--nav-h));
+        min-height: calc(85dvh - var(--nav-h));
+        padding: var(--space-12) var(--space-6);
       }
 
       .hero__halo-wrap {
@@ -1143,8 +1147,7 @@
       }
 
       .hero {
-        padding: var(--space-12) var(--space-4);
-        padding-top: calc(var(--space-8) + 64px);
+        padding: var(--space-8) var(--space-4);
       }
 
       .hero__halo-wrap {
