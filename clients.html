@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients · Soter Labs</title>
+  <meta name="description" content="The Genesis Executor Agents Soter Labs operates across the Sky Ecosystem.">
+  <meta property="og:title" content="Clients · Soter Labs">
+  <meta property="og:description" content="The Genesis Executor Agents Soter Labs operates across the Sky Ecosystem.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://soterlabs.com/assets/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://soterlabs.com/assets/images/og-card.jpg">
+  <meta property="og:url" content="https://soterlabs.com/clients">
+  <link rel="canonical" href="https://soterlabs.com/clients">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = stored || (prefersLight ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="d4115aab-1aa7-4ec0-b0f7-fb1b7f1ddf7e" data-domains="soterlabs.com"></script>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__wordmark"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
+      <button class="nav__mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/about" class="nav__link">About</a></li>
+        <li><a href="/values" class="nav__link">Values</a></li>
+        <li><a href="/services" class="nav__link">Services</a></li>
+        <li><a href="/clients" class="nav__link nav__link--active">Clients</a></li>
+        <li><a href="https://settle.soterlabs.com" target="_blank" rel="noopener" class="nav__link nav__link--ext">Console<sup>&nearr;</sup></a></li>
+        <li>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+            <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </button>
+        </li>
+        <li><a href="/contact" class="nav__cta">Get in touch &rarr;</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page hero -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <p class="page-hero__kicker fade-in">Clients</p>
+      <h1 class="page-hero__title fade-in">Proof of work</h1>
+      <p class="page-hero__lede fade-in">Twelve clients across the Sky Ecosystem &mdash; direct mandates for the protocol and its Foundation, and two Operational Executor Agents we drive for the agents they serve.</p>
+    </div>
+  </header>
+
+  <section class="section section--flush" id="proof">
+    <div class="section__inner">
+      <div class="orrery fade-in" id="orrery">
+        <div class="orrery__glow" aria-hidden="true"></div>
+        <div class="orrery__path" id="path-sff" aria-hidden="true"></div>
+        <div class="orrery__path" id="path-sat-console" aria-hidden="true"></div>
+        <div class="orrery__path" id="path-sat-osero" aria-hidden="true"></div>
+        <div class="orrery__path" id="path-ozone" aria-hidden="true"></div>
+        <div class="orrery__path" id="path-amatsu" aria-hidden="true"></div>
+        <div class="orrery__moonpath" id="moonpath-ozone" aria-hidden="true"></div>
+        <div class="orrery__moonpath" id="moonpath-amatsu" aria-hidden="true"></div>
+
+        <a class="orrery__sun" data-client="sky" href="https://www.skyeco.com/" target="_blank" rel="noopener" aria-label="Sky Ecosystem">
+          <span class="orrery__sun-core"><img src="/assets/images/sky.svg" alt="Sky Ecosystem"></span>
+          <span class="orrery__caption">Sky Ecosystem</span>
+        </a>
+
+        <div class="orrery__body orrery__body--sat" id="sat-console" data-client="sky" tabindex="0" role="button" aria-label="Soter Console, delivered for the Sky Ecosystem">
+          <span class="orrery__face orrery__face--sat"></span>
+          <span class="orrery__caption orrery__caption--hover">Soter Console</span>
+        </div>
+
+        <div class="orrery__body orrery__body--sat" id="sat-osero" data-client="osero" tabindex="0" role="button" aria-label="Osero incubation, delivered with Stablewatch">
+          <span class="orrery__face orrery__face--sat orrery__face--sat-sm"></span>
+          <span class="orrery__caption orrery__caption--hover">Incubation</span>
+        </div>
+
+        <a class="orrery__body" id="node-sff" data-client="sff" href="https://insights.skyeco.com/" target="_blank" rel="noopener" aria-label="Sky Frontier Foundation">
+          <span class="orrery__face orrery__face--initials">SF</span>
+          <span class="orrery__caption orrery__caption--hover">Sky Frontier Foundation</span>
+        </a>
+
+        <div class="orrery__body" id="planet-ozone" data-client="ozone" tabindex="0" role="button" aria-label="Ozone OEA, driven by Soter Labs">
+          <span class="orrery__face orrery__face--planet">O</span>
+          <span class="orrery__caption">Ozone OEA<em>driven by Soter</em></span>
+        </div>
+
+        <div class="orrery__body" id="planet-amatsu" data-client="amatsu" tabindex="0" role="button" aria-label="Amatsu OEA, driven by Soter Labs">
+          <span class="orrery__face orrery__face--planet">A</span>
+          <span class="orrery__caption">Amatsu OEA<em>driven by Soter</em></span>
+        </div>
+
+      <a class="orrery__body orrery__body--moon" data-sys="ozone" data-i="0" data-client="obex" href="https://obex.xyz/" target="_blank" rel="noopener">
+        <span class="orrery__face orrery__face--img"><img src="/assets/images/obex.jpg" alt="Obex"></span>
+        <span class="orrery__caption orrery__caption--hover">Obex</span>
+      </a>
+      <a class="orrery__body orrery__body--moon" data-sys="ozone" data-i="1" data-client="skybase" href="https://sky.money/" target="_blank" rel="noopener">
+        <span class="orrery__face orrery__face--img orrery__face--wordmark"><img src="/assets/images/sky.svg" alt="Skybase"></span>
+        <span class="orrery__caption orrery__caption--hover">Skybase</span>
+      </a>
+      <div class="orrery__body orrery__body--moon orrery__body--pending" data-sys="ozone" data-i="2" data-client="pattern" tabindex="0" role="button">
+        <span class="orrery__face orrery__face--img">P</span>
+        <span class="orrery__caption orrery__caption--hover">Pattern &middot; launch pending</span>
+      </div>
+      <a class="orrery__body orrery__body--moon" data-sys="ozone" data-i="3" data-client="osero" href="https://osero.org/" target="_blank" rel="noopener">
+        <span class="orrery__face orrery__face--img"><img src="/assets/images/osero.jpg" alt="Osero"></span>
+        <span class="orrery__caption orrery__caption--hover">Osero</span>
+      </a>
+      <div class="orrery__body orrery__body--moon orrery__body--pending" data-sys="ozone" data-i="4" data-client="la7" tabindex="0" role="button">
+        <span class="orrery__face orrery__face--img">L</span>
+        <span class="orrery__caption orrery__caption--hover">Launch Agent 7 &middot; launch pending</span>
+      </div>
+      <a class="orrery__body orrery__body--moon" data-sys="amatsu" data-i="0" data-client="spark" href="https://spark.fi" target="_blank" rel="noopener">
+        <span class="orrery__face orrery__face--img orrery__face--wordmark"><img src="/assets/images/spark.svg" alt="Spark"></span>
+        <span class="orrery__caption orrery__caption--hover">Spark</span>
+      </a>
+      <a class="orrery__body orrery__body--moon" data-sys="amatsu" data-i="1" data-client="grove" href="https://www.grove.finance/" target="_blank" rel="noopener">
+        <span class="orrery__face orrery__face--img"><img src="/assets/images/grove.jpg" alt="Grove"></span>
+        <span class="orrery__caption orrery__caption--hover">Grove</span>
+      </a>
+      <a class="orrery__body orrery__body--moon" data-sys="amatsu" data-i="2" data-client="keel" href="https://keel.fi/" target="_blank" rel="noopener">
+        <span class="orrery__face orrery__face--img"><img src="/assets/images/keel.png" alt="Keel"></span>
+        <span class="orrery__caption orrery__caption--hover">Keel</span>
+      </a>
+      </div>
+
+      <div class="client-index fade-in" id="client-index">
+        <div class="client-index__cards">
+    <article class="client-card is-active" id="card-sky">
+      <p class="client-card__kicker">Ecosystem &middot; direct mandate</p>
+      <h3 class="client-card__name">Sky Ecosystem</h3>
+      <p class="client-card__desc">The decentralized stablecoin ecosystem behind USDS and SKY. Every mandate we hold ultimately serves the protocol &mdash; and some of our work is engaged at this level directly.</p>
+      <div class="client-card__links">
+        <a href="https://www.skyeco.com/" target="_blank" rel="noopener" class="section-link">www.skyeco.com &rarr;</a>
+        <a href="https://x.com/SkyEcosystem" target="_blank" rel="noopener" class="section-link">@SkyEcosystem &rarr;</a>
+      </div>
+          <div class="client-card__delivered">
+        <p class="client-card__delivered-heading"><span class="system__pulse" aria-hidden="true"></span>Delivered</p>
+        <a class="delivered-item" href="https://settle.soterlabs.com" target="_blank" rel="noopener">
+          <span class="delivered-item__name">Soter Console</span>
+          <span class="delivered-item__desc">Live settlement &amp; distribution reporting</span>
+          <span class="delivered-item__arrow">&nearr;</span>
+        </a>
+      </div>
+    </article>
+    <article class="client-card" id="card-sff">
+      <p class="client-card__kicker">Ecosystem &middot; direct mandate</p>
+      <h3 class="client-card__name">Sky Frontier Foundation</h3>
+      <p class="client-card__desc">The independent foundation supporting the innovation, development, and acceleration of the Sky Ecosystem &mdash; from new agents to ecosystem-level research and reporting.</p>
+      <div class="client-card__links">
+        <a href="https://insights.skyeco.com/" target="_blank" rel="noopener" class="section-link">insights.skyeco.com &rarr;</a>
+      </div>
+    </article>
+    <article class="client-card" id="card-ozone">
+      <p class="client-card__kicker">Operational Executor Agent &middot; driven by Soter</p>
+      <h3 class="client-card__name">Ozone OEA</h3>
+      <p class="client-card__desc">One of two Operational Executor Agents in the Sky Ecosystem. Soter drives Ozone end to end: spell cycles, deployment coordination, Atlas compliance, and transparent reporting for the five agents it services.</p>
+    </article>
+    <article class="client-card" id="card-amatsu">
+      <p class="client-card__kicker">Operational Executor Agent &middot; driven by Soter</p>
+      <h3 class="client-card__name">Amatsu OEA</h3>
+      <p class="client-card__desc">The second Operational Executor Agent we drive. Amatsu executes governance for its agents and publishes the Monthly Settlement Cycle calculations under the Atlas.</p>
+    </article>
+    <article class="client-card" id="card-obex">
+      <p class="client-card__kicker">Agent &middot; serviced via Ozone OEA</p>
+      <h3 class="client-card__name">Obex</h3>
+      <p class="client-card__desc">Incubator agent deploying capital into new projects joining the Sky Ecosystem &mdash; its inaugural cohort spans stablecoin and RWA builders.</p>
+      <div class="client-card__links">
+        <a href="https://obex.xyz/" target="_blank" rel="noopener" class="section-link">obex.xyz &rarr;</a>
+        <a href="https://x.com/obexincubator" target="_blank" rel="noopener" class="section-link">@obexincubator &rarr;</a>
+      </div>
+    </article>
+    <article class="client-card" id="card-skybase">
+      <p class="client-card__kicker">Agent &middot; serviced via Ozone OEA</p>
+      <h3 class="client-card__name">Skybase</h3>
+      <p class="client-card__desc">Agent in the Sky network, serviced through the Ozone OEA cycle: spells, monitoring, and reporting.</p>
+      <div class="client-card__links">
+        <a href="https://sky.money/" target="_blank" rel="noopener" class="section-link">sky.money &rarr;</a>
+        <a href="https://x.com/SkyMoney" target="_blank" rel="noopener" class="section-link">@SkyMoney &rarr;</a>
+      </div>
+    </article>
+    <article class="client-card" id="card-pattern">
+      <p class="client-card__kicker">Agent &middot; via Ozone OEA &middot; launch pending</p>
+      <h3 class="client-card__name">Pattern</h3>
+      <p class="client-card__desc">Onboarding to the Sky agent network. Operational coverage begins at launch.</p>
+    </article>
+    <article class="client-card" id="card-osero">
+      <p class="client-card__kicker">Agent &middot; serviced via Ozone OEA</p>
+      <h3 class="client-card__name">Osero</h3>
+      <p class="client-card__desc">Stablecoin savings infrastructure for Sky&rsquo;s USDS and sUSDS &mdash; incubated by Stablewatch in partnership with Soter Labs, and serviced through the Ozone OEA cycle.</p>
+      <div class="client-card__links">
+        <a href="https://osero.org/" target="_blank" rel="noopener" class="section-link">osero.org &rarr;</a>
+        <a href="https://x.com/OseroHQ" target="_blank" rel="noopener" class="section-link">@OseroHQ &rarr;</a>
+      </div>
+          <div class="client-card__delivered">
+        <p class="client-card__delivered-heading"><span class="system__pulse" aria-hidden="true"></span>Delivered</p>
+        <a class="delivered-item" href="https://www.theblock.co/post/400948/sky-ecosystem-stablewatch-stablecoin-yield-startup-osero-funding" target="_blank" rel="noopener">
+          <span class="delivered-item__name">Agent Incubation</span>
+          <span class="delivered-item__desc">Incubated with Stablewatch &mdash; $13.5M raise led by Sky Ecosystem &middot; The Block</span>
+          <span class="delivered-item__arrow">&nearr;</span>
+        </a>
+      </div>
+    </article>
+    <article class="client-card" id="card-la7">
+      <p class="client-card__kicker">Agent &middot; via Ozone OEA &middot; launch pending</p>
+      <h3 class="client-card__name">Launch Agent 7</h3>
+      <p class="client-card__desc">Onboarding to the Sky agent network. Operational coverage begins at launch.</p>
+    </article>
+    <article class="client-card" id="card-spark">
+      <p class="client-card__kicker">Agent &middot; serviced via Amatsu OEA</p>
+      <h3 class="client-card__name">Spark</h3>
+      <p class="client-card__desc">DeFi capital allocator and the first agent in the network to launch its own token. Serviced through the Amatsu OEA cycle.</p>
+      <div class="client-card__links">
+        <a href="https://spark.fi" target="_blank" rel="noopener" class="section-link">spark.fi &rarr;</a>
+        <a href="https://x.com/sparkdotfi" target="_blank" rel="noopener" class="section-link">@sparkdotfi &rarr;</a>
+      </div>
+    </article>
+    <article class="client-card" id="card-grove">
+      <p class="client-card__kicker">Agent &middot; serviced via Amatsu OEA</p>
+      <h3 class="client-card__name">Grove</h3>
+      <p class="client-card__desc">Deploys capital into tokenized onchain investment vehicles. Serviced through the Amatsu OEA cycle.</p>
+      <div class="client-card__links">
+        <a href="https://www.grove.finance/" target="_blank" rel="noopener" class="section-link">www.grove.finance &rarr;</a>
+        <a href="https://x.com/grovedotfinance" target="_blank" rel="noopener" class="section-link">@grovedotfinance &rarr;</a>
+      </div>
+    </article>
+    <article class="client-card" id="card-keel">
+      <p class="client-card__kicker">Agent &middot; serviced via Amatsu OEA</p>
+      <h3 class="client-card__name">Keel</h3>
+      <p class="client-card__desc">Allocates into Solana real-world assets through its Regatta program. Serviced through the Amatsu OEA cycle.</p>
+      <div class="client-card__links">
+        <a href="https://keel.fi/" target="_blank" rel="noopener" class="section-link">keel.fi &rarr;</a>
+        <a href="https://x.com/keel_fi" target="_blank" rel="noopener" class="section-link">@keel_fi &rarr;</a>
+      </div>
+    </article>
+        </div>
+        <nav class="client-index__list" aria-label="Client index">
+      <p class="client-index__group">Ecosystem</p>
+      <button type="button" class="client-index__item" data-client="sky">Sky Ecosystem</button>
+      <button type="button" class="client-index__item" data-client="sff">Sky Frontier Foundation</button>
+      <p class="client-index__group">Executors · driven by Soter</p>
+      <button type="button" class="client-index__item" data-client="ozone">Ozone OEA</button>
+      <button type="button" class="client-index__item" data-client="amatsu">Amatsu OEA</button>
+      <p class="client-index__group">Serviced via Ozone</p>
+      <button type="button" class="client-index__item" data-client="obex">Obex</button>
+      <button type="button" class="client-index__item" data-client="skybase">Skybase</button>
+      <button type="button" class="client-index__item" data-client="pattern">Pattern</button>
+      <button type="button" class="client-index__item" data-client="osero">Osero</button>
+      <button type="button" class="client-index__item" data-client="la7">Launch Agent 7</button>
+      <p class="client-index__group">Serviced via Amatsu</p>
+      <button type="button" class="client-index__item" data-client="spark">Spark</button>
+      <button type="button" class="client-index__item" data-client="grove">Grove</button>
+      <button type="button" class="client-index__item" data-client="keel">Keel</button>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="nav__wordmark"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
+        <p class="footer__tag">Trusted GovOps provider for the Sky Ecosystem. We make complex operations simple and opaque processes transparent.</p>
+        <p class="footer__copy">&copy; <span id="footer-year">2026</span> Soter Labs. All rights reserved.</p>
+      </div>
+      <nav class="footer__col footer__col--split" aria-label="Site">
+        <p class="footer__heading">Site</p>
+        <a href="/" class="footer__navlink">Home</a>
+        <a href="/about" class="footer__navlink">About</a>
+        <a href="/values" class="footer__navlink">Values</a>
+        <a href="/services" class="footer__navlink">Services</a>
+        <a href="/clients" class="footer__navlink">Clients</a>
+        <a href="/contact" class="footer__navlink">Contact</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__heading">Products</p>
+        <a href="https://settle.soterlabs.com" target="_blank" rel="noopener" class="footer__navlink">Soter Console &nearr;</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Connect</p>
+        <a href="mailto:hello@soterlabs.com" class="footer__navlink">hello@soterlabs.com</a>
+        <a href="https://x.com/soterlabs" target="_blank" rel="noopener" class="footer__navlink">X / Twitter</a>
+        <a href="https://github.com/soterlabs" target="_blank" rel="noopener" class="footer__navlink">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+
+  <script>
+    // Client orrery: Sky is the sun, OEAs are planets Soter pilots,
+    // serviced agents are their moons. Nested orbits = nested mandates.
+    (function () {
+      var orrery = document.getElementById('orrery');
+      if (!orrery) return;
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var TAU = Math.PI * 2;
+      var target = 1, factor = 1, t = 0, last = null;
+
+      var SFF = {
+        el: document.getElementById('node-sff'), path: document.getElementById('path-sff'),
+        rf: 0.34, squash: 0.5, phi: rad(14), period: 52, dir: -1, phase: rad(120)
+      };
+      // Delivered products: artificial satellites on tight orbits.
+      // Add one entry (+ markup) per delivered thing.
+      var SATS = [
+        { el: document.getElementById('sat-console'), path: document.getElementById('path-sat-console'),
+          rf: 0.21, squash: 0.42, phi: rad(-22), period: 26, dir: 1, phase: rad(40) },
+        // anchored satellites ride a moon (r is px in the moon's frame)
+        { el: document.getElementById('sat-osero'), path: document.getElementById('path-sat-osero'),
+          anchor: 'osero', r: 36, squash: 0.5, phi: rad(18), period: 13, dir: -1, phase: rad(90) }
+      ];
+      var SYSTEMS = {
+        ozone: {
+          el: document.getElementById('planet-ozone'), path: document.getElementById('path-ozone'),
+          moonPath: document.getElementById('moonpath-ozone'),
+          rf: 0.88, squash: 0.36, phi: rad(-14), period: 150, dir: 1, phase: rad(205),
+          moons: { rBase: 0.32, rMin: 80, rMax: 106, squash: 0.55, phi: rad(12), period: 40, dir: -1 }
+        },
+        amatsu: {
+          el: document.getElementById('planet-amatsu'), path: document.getElementById('path-amatsu'),
+          moonPath: document.getElementById('moonpath-amatsu'),
+          rf: 0.88, squash: 0.5, phi: rad(12), period: 150, dir: 1, phase: rad(25),
+          moons: { rBase: 0.28, rMin: 74, rMax: 96, squash: 0.55, phi: rad(-10), period: 32, dir: 1 }
+        }
+      };
+      var moonEls = { ozone: [], amatsu: [] };
+      Array.prototype.forEach.call(orrery.querySelectorAll('[data-sys]'), function (el) {
+        moonEls[el.getAttribute('data-sys')].push(el);
+      });
+
+      function rad(d) { return d * Math.PI / 180; }
+
+      var R = 0;
+      function sizePaths() {
+        R = Math.min(orrery.clientWidth / 2 - 90, 355);
+        [[SFF.path, R * SFF.rf, SFF.squash, SFF.phi]].concat(
+          SATS.map(function (st) { return [st.path, st.anchor ? st.r : R * st.rf, st.squash, st.phi]; })
+        ).concat(
+          Object.keys(SYSTEMS).map(function (k) {
+            var s = SYSTEMS[k];
+            return [s.path, R * s.rf, s.squash, s.phi];
+          })
+        ).forEach(function (cfg) {
+          var el = cfg[0], r = cfg[1], sq = cfg[2], phi = cfg[3];
+          el.style.width = (r * 2) + 'px';
+          el.style.height = (r * 2) + 'px';
+          el.style.marginLeft = -r + 'px';
+          el.style.marginTop = -r + 'px';
+          el.style.transform = 'rotate(' + (phi * 180 / Math.PI) + 'deg) scaleY(' + sq + ')';
+        });
+        Object.keys(SYSTEMS).forEach(function (k) {
+          var s = SYSTEMS[k];
+          var mr = moonR(s);
+          var el = s.moonPath;
+          el.style.width = (mr * 2) + 'px';
+          el.style.height = (mr * 2) + 'px';
+        });
+      }
+
+      function moonR(s) {
+        return Math.max(s.moons.rMin, Math.min(s.moons.rMax, R * s.moons.rBase));
+      }
+
+      function orbitPos(r, angle, squash, phi) {
+        var px = Math.cos(angle) * r;
+        var pz = Math.sin(angle) * r;
+        var ex = px, ey = pz * squash;
+        return {
+          x: ex * Math.cos(phi) - ey * Math.sin(phi),
+          y: ex * Math.sin(phi) + ey * Math.cos(phi),
+          d: Math.sin(angle)
+        };
+      }
+
+      function place() {
+        // Foundation: tight inner orbit
+        var a = SFF.phase + SFF.dir * t * TAU / SFF.period;
+        var p = orbitPos(R * SFF.rf, a, SFF.squash, SFF.phi);
+        var sc = 1 + 0.16 * p.d;
+        SFF.el.style.transform = 'translate(' + p.x.toFixed(2) + 'px,' + p.y.toFixed(2) + 'px) scale(' + sc.toFixed(3) + ')';
+        SFF.el.style.zIndex = String(100 + Math.round(p.d * 18));
+        SFF.el.style.opacity = (0.6 + 0.4 * (p.d + 1) / 2).toFixed(3);
+
+        var anchors = {};
+
+        SATS.forEach(function (st) {
+          if (st.anchor) return;
+          var sa = st.phase + st.dir * t * TAU / st.period;
+          var sp = orbitPos(R * st.rf, sa, st.squash, st.phi);
+          var ssc = 1 + 0.18 * sp.d;
+          st.el.style.transform = 'translate(' + sp.x.toFixed(2) + 'px,' + sp.y.toFixed(2) + 'px) scale(' + ssc.toFixed(3) + ')';
+          st.el.style.zIndex = String(100 + Math.round(sp.d * 14));
+          st.el.style.opacity = (0.65 + 0.35 * (sp.d + 1) / 2).toFixed(3);
+        });
+
+        Object.keys(SYSTEMS).forEach(function (k) {
+          var s = SYSTEMS[k];
+          var pa = s.phase + s.dir * t * TAU / s.period;
+          var pp = orbitPos(R * s.rf, pa, s.squash, s.phi);
+          var pScale = 1 + 0.2 * pp.d;
+          var pz = 100 + Math.round(pp.d * 30);
+          s.el.style.transform = 'translate(' + pp.x.toFixed(2) + 'px,' + pp.y.toFixed(2) + 'px) scale(' + pScale.toFixed(3) + ')';
+          s.el.style.zIndex = String(pz);
+          s.el.style.opacity = (0.6 + 0.4 * (pp.d + 1) / 2).toFixed(3);
+
+          // moon ring rides the planet
+          var mr = moonR(s);
+          var mp = s.moonPath;
+          mp.style.marginLeft = -mr + 'px';
+          mp.style.marginTop = -mr + 'px';
+          mp.style.transform = 'translate(' + pp.x.toFixed(2) + 'px,' + pp.y.toFixed(2) + 'px) rotate(' + (s.moons.phi * 180 / Math.PI) + 'deg) scale(' + pScale.toFixed(3) + ', ' + (s.moons.squash * pScale).toFixed(3) + ')';
+          mp.style.zIndex = String(pz - 2);
+          mp.style.opacity = (0.4 + 0.4 * (pp.d + 1) / 2).toFixed(3);
+
+          var n = moonEls[k].length;
+          moonEls[k].forEach(function (mEl, i) {
+            var ma = (i / n) * TAU + s.moons.dir * t * TAU / s.moons.period;
+            var mpos = orbitPos(mr, ma, s.moons.squash, s.moons.phi);
+            var mScale = pScale * (1 + 0.14 * mpos.d);
+            mEl.style.transform = 'translate(' + (pp.x + mpos.x * pScale).toFixed(2) + 'px,' + (pp.y + mpos.y * pScale).toFixed(2) + 'px) scale(' + mScale.toFixed(3) + ')';
+            mEl.style.zIndex = String(pz + (mpos.d >= 0 ? 3 : -3));
+            mEl.style.opacity = (Math.min(1, (0.55 + 0.45 * (mpos.d + 1) / 2) * (0.7 + 0.3 * (pp.d + 1) / 2))).toFixed(3);
+            var slug = mEl.getAttribute('data-client');
+            if (slug) {
+              anchors[slug] = {
+                x: pp.x + mpos.x * pScale, y: pp.y + mpos.y * pScale,
+                scale: mScale, z: pz + (mpos.d >= 0 ? 3 : -3),
+                op: parseFloat(mEl.style.opacity)
+              };
+            }
+          });
+        });
+
+        // anchored satellites: mini orbits in their moon's moving frame
+        SATS.forEach(function (st) {
+          if (!st.anchor) return;
+          var a = anchors[st.anchor];
+          if (!a) return;
+          var sa = st.phase + st.dir * t * TAU / st.period;
+          var lp = orbitPos(st.r, sa, st.squash, st.phi);
+          var x = a.x + lp.x * a.scale;
+          var y = a.y + lp.y * a.scale;
+          var sc = a.scale * (1 + 0.16 * lp.d);
+          st.el.style.transform = 'translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px) scale(' + sc.toFixed(3) + ')';
+          st.el.style.zIndex = String(a.z + (lp.d >= 0 ? 2 : -2));
+          st.el.style.opacity = Math.min(1, a.op * (0.75 + 0.25 * (lp.d + 1))).toFixed(3);
+          st.path.style.transform = 'translate(' + a.x.toFixed(2) + 'px,' + a.y.toFixed(2) + 'px) rotate(' + (st.phi * 180 / Math.PI) + 'deg) scale(' + a.scale.toFixed(3) + ', ' + (st.squash * a.scale).toFixed(3) + ')';
+          st.path.style.zIndex = String(a.z - 1);
+          st.path.style.opacity = (a.op * 0.5).toFixed(3);
+        });
+      }
+
+      Array.prototype.forEach.call(orrery.querySelectorAll('.orrery__body, .orrery__sun'), function (el) {
+        el.addEventListener('mouseenter', function () { target = 0; });
+        el.addEventListener('mouseleave', function () { target = 1; });
+      });
+
+
+      // Master/detail: orrery bodies and the index list drive one card
+      var indexEl = document.getElementById('client-index');
+      function selectClient(slug, scroll) {
+        document.querySelectorAll('.client-card').forEach(function (c) {
+          c.classList.toggle('is-active', c.id === 'card-' + slug);
+        });
+        document.querySelectorAll('.client-index__item').forEach(function (b) {
+          b.classList.toggle('is-active', b.getAttribute('data-client') === slug);
+        });
+        document.querySelectorAll('.orrery [data-client]').forEach(function (o) {
+          o.classList.toggle('is-selected', o.getAttribute('data-client') === slug);
+        });
+        if (scroll && indexEl) indexEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+      document.querySelectorAll('.client-index__item').forEach(function (b) {
+        b.addEventListener('click', function () { selectClient(b.getAttribute('data-client'), false); });
+      });
+      document.querySelectorAll('.orrery [data-client]').forEach(function (o) {
+        o.addEventListener('click', function (e) {
+          e.preventDefault();
+          selectClient(o.getAttribute('data-client'), true);
+        });
+        o.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectClient(o.getAttribute('data-client'), true);
+          }
+        });
+      });
+      selectClient('sky', false);
+
+      sizePaths();
+      window.addEventListener('resize', sizePaths);
+
+      if (reduced) { place(); return; }
+      function frame(ts) {
+        if (last === null) last = ts;
+        var dt = Math.min((ts - last) / 1000, 0.1);
+        last = ts;
+        factor += (target - factor) * Math.min(1, dt * 5);
+        t += dt * factor;
+        place();
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
+
+
+</body>
+</html>

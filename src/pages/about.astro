@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { team } from '../data/team';
+const teamData = Object.fromEntries(team.map((person) => [person.slug, person]));
+---
+<BaseLayout title="About Soter Labs · The systems behind complex operations" description="Learn why Soter exists and meet the team behind its operational systems, infrastructure, and reporting." active="about">
+  <header class="page-hero page-hero--apparatus about-hero">
+    <div class="page-hero__inner about-hero__layout">
+      <div class="about-router" aria-hidden="true">
+        <svg class="about-router__map" viewBox="0 0 560 360" role="presentation">
+          <g class="about-router__grid">
+            <path d="M35 48H525M35 112H525M35 176H525M35 240H525M35 304H525" />
+            <path d="M95 28V330M190 28V330M285 28V330M380 28V330M475 28V330" />
+          </g>
+          <g class="about-router__routes">
+            <path class="about-router__route about-router__route--1" pathLength="1" d="M38 52C128 52 116 152 218 152S321 82 414 82H520" />
+            <path class="about-router__route about-router__route--2" pathLength="1" d="M38 102C136 102 128 216 225 216S326 146 414 146H520" />
+            <path class="about-router__route about-router__route--3" pathLength="1" d="M38 168C130 168 126 112 222 112S320 210 414 210H520" />
+            <path class="about-router__route about-router__route--4" pathLength="1" d="M38 238C124 238 136 278 222 278S330 274 414 274H520" />
+            <path class="about-router__route about-router__route--5" pathLength="1" d="M38 304C146 304 114 184 220 184S326 82 414 82" />
+          </g>
+          <g class="about-router__flow" aria-hidden="true">
+            <path class="about-router__flow-line about-router__flow-line--1" pathLength="1" d="M38 52C128 52 116 152 218 152S321 82 414 82H520" />
+            <path class="about-router__flow-line about-router__flow-line--2" pathLength="1" d="M38 102C136 102 128 216 225 216S326 146 414 146H520" />
+            <path class="about-router__flow-line about-router__flow-line--3" pathLength="1" d="M38 168C130 168 126 112 222 112S320 210 414 210H520" />
+            <path class="about-router__flow-line about-router__flow-line--4" pathLength="1" d="M38 238C124 238 136 278 222 278S330 274 414 274H520" />
+            <path class="about-router__flow-line about-router__flow-line--5" pathLength="1" d="M38 304C146 304 114 184 220 184S326 82 414 82" />
+          </g>
+          <g class="about-router__junctions">
+            <circle cx="38" cy="52" r="4" /><circle cx="38" cy="102" r="4" /><circle cx="38" cy="168" r="4" /><circle cx="38" cy="238" r="4" /><circle cx="38" cy="304" r="4" />
+            <rect x="410" y="78" width="8" height="8" /><rect x="410" y="142" width="8" height="8" /><rect x="410" y="206" width="8" height="8" /><rect x="410" y="270" width="8" height="8" />
+          </g>
+          <g class="about-router__terminals">
+            <path d="M520 70V94M508 82H532" /><path d="M520 134V158M508 146H532" /><path d="M520 198V222M508 210H532" /><path d="M520 262V286M508 274H532" />
+          </g>
+        </svg>
+      </div>
+      <div class="about-hero__copy">
+        <p class="page-hero__kicker">About Soter</p>
+        <h1 class="page-hero__title about-hero__title"><span>We make complex operations</span><span class="about-hero__outcomes">understandable. dependable. <span class="about-hero__visible" data-scroll-reveal>visible.</span></span></h1>
+        <p class="page-hero__lede">Soter Labs designs, builds, and runs the operational systems behind complex organizations, protocols, and ecosystems.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section--center section--flush signature-stage about-team"><div class="section__inner"><p class="section__eyebrow fade-in">The people behind the systems</p><h2 class="section__label fade-in">Cross-functional by design.</h2><p class="team-intro fade-in">Complex mandates rarely fit inside one discipline. Soter brings operational, technical, governance, program, and ecosystem expertise around the work. Select a team member to understand their role.</p>
+    <div class="team-orbit fade-in" aria-label="Soter Labs team">
+      <div class="team-orbit__halo"></div>{[1,2,3,4,5].map((i) => <div class={`team-orbit__particle team-orbit__particle--${i}`}></div>)}<div class="team-orbit__ring-decor"></div><div class="team-orbit__ring-flat"></div><div class="team-orbit__ring-flat team-orbit__ring-flat--inner"></div><div class="team-orbit__center"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs" /></div>
+      {team.map((person) => <a href={`/team/${person.slug}`} class="team-orbit__avatar" data-team-link data-angle={person.angle} data-ring={person.ring} aria-label={`${person.name}, ${person.role}`}><span class="team-orbit__face">{person.initial}<img src={person.avatar} alt="" loading="lazy" onerror="this.remove()" /></span><span class="team-orbit__name">{person.name}</span></a>)}
+    </div>
+  </div></section>
+
+  <section class="section name-origin instrument-section">
+    <div class="section__inner name-origin__grid">
+      <div class="name-origin__instrument name-origin__system fade-in" aria-hidden="true">
+        <div class="name-origin__header"><span>Intent → execute → evidence</span></div>
+        <svg class="protocol-map" viewBox="0 0 640 420" role="presentation">
+          <g class="protocol-map__grid">
+            <path d="M20 70H620M20 150H620M20 230H620M20 310H620M120 34V386M240 34V386M360 34V386M480 34V386M600 34V386" />
+          </g>
+          <g class="protocol-map__routes">
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 0" pathLength="1" d="M140 82C166 82 154 147 180 147" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 1" pathLength="1" d="M140 172C160 172 160 147 180 147" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 2" pathLength="1" d="M140 262C166 262 154 147 180 147" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 3" pathLength="1" d="M240 179V255" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 4" pathLength="1" d="M300 273C327 273 315 120 340 120" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 5" pathLength="1" d="M300 301C327 301 315 255 340 255" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 6" pathLength="1" d="M450 120C474 120 462 200 490 200" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 7" pathLength="1" d="M450 255C474 255 462 200 490 200" />
+            <path class="protocol-map__route protocol-map__draw" style="--draw-index: 8" pathLength="1" d="M620 200H636" />
+          </g>
+          <g class="protocol-map__signals" aria-hidden="true">
+            <path class="protocol-map__signal protocol-map__signal--1" pathLength="1" d="M140 82C166 82 154 147 180 147" />
+            <path class="protocol-map__signal protocol-map__signal--2" pathLength="1" d="M140 172C160 172 160 147 180 147M240 179V255M300 273C327 273 315 120 340 120" />
+            <path class="protocol-map__signal protocol-map__signal--3" pathLength="1" d="M140 262C166 262 154 147 180 147M240 179V255M300 301C327 301 315 255 340 255" />
+            <path class="protocol-map__signal protocol-map__signal--4" pathLength="1" d="M450 120C474 120 462 200 490 200M450 255C474 255 462 200 490 200M620 200H636" />
+          </g>
+          <g class="protocol-map__nodes">
+            <g class="protocol-map__node protocol-map__node--input" style="--node-index: 0"><rect x="20" y="60" width="120" height="44" rx="3" /><text x="80" y="86">Governance mandate</text></g>
+            <g class="protocol-map__node protocol-map__node--input" style="--node-index: 1"><rect x="20" y="150" width="120" height="44" rx="3" /><text x="80" y="176">Monitor</text></g>
+            <g class="protocol-map__node protocol-map__node--input" style="--node-index: 2"><rect x="20" y="240" width="120" height="44" rx="3" /><text x="80" y="266">Dependencies</text></g>
+            <g class="protocol-map__node protocol-map__node--primary" style="--node-index: 3"><rect x="180" y="115" width="120" height="64" rx="4" /><text x="240" y="151">Operate</text></g>
+            <g class="protocol-map__node protocol-map__node--primary" style="--node-index: 4"><rect x="180" y="255" width="120" height="64" rx="4" /><text x="240" y="291">Execute</text></g>
+            <g class="protocol-map__node" style="--node-index: 5"><rect x="340" y="95" width="110" height="50" rx="3" /><text x="395" y="124">Protocol state</text></g>
+            <g class="protocol-map__node" style="--node-index: 6"><rect x="340" y="230" width="110" height="50" rx="3" /><text x="395" y="259">Validate</text></g>
+            <g class="protocol-map__node protocol-map__node--record" style="--node-index: 7"><rect x="490" y="165" width="130" height="70" rx="4" /><text x="555" y="204">Reporting</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="name-origin__copy fade-in">
+        <p class="section__eyebrow">The meaning behind the name</p>
+        <h2 class="section__label">Built to preserve what matters.</h2>
+        <p>Soter comes from the Ancient Greek <em>sōtēr</em>: savior, deliverer, preserver—a title associated with protection and practical deliverance.</p>
+        <p>That meaning lives in the work: protect the integrity of important operations by making expectations clear, ownership visible, execution dependable, and outcomes understandable.</p>
+        <p>The name gives us a purpose, not a mythology. Protection is expressed through the systems we build and the care with which we run them.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="profile-modal" id="profile-modal" hidden>
+    <div class="profile-modal__backdrop" data-close></div>
+    <span class="profile-modal__tether" aria-hidden="true"></span>
+    <div class="profile-modal__card" role="dialog" aria-modal="true" aria-labelledby="profile-modal-name">
+      <button class="profile-modal__close" type="button" data-close aria-label="Close profile">×</button>
+      <div id="profile-modal-body"></div>
+      <div class="profile-actions">
+        <a id="profile-modal-page" class="section-link" href="#">Open full profile →</a>
+        <button type="button" class="section-link profile-copy" id="profile-modal-copy">Copy link</button>
+      </div>
+    </div>
+  </div>
+  <script id="team-data" type="application/json" set:html={JSON.stringify(teamData)}></script>
+  <script slot="scripts" is:inline src="/assets/js/team-orbit.js?v=20260723.4"></script>
+</BaseLayout>

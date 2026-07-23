@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact · Soter Labs</title>
+  <meta name="description" content="Get in touch with Soter Labs. Tell us about your organization and what you're navigating.">
+  <meta property="og:title" content="Contact · Soter Labs">
+  <meta property="og:description" content="Get in touch with Soter Labs. Tell us about your organization and what you're navigating.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://soterlabs.com/assets/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://soterlabs.com/assets/images/og-card.jpg">
+  <meta property="og:url" content="https://soterlabs.com/contact">
+  <link rel="canonical" href="https://soterlabs.com/contact">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = stored || (prefersLight ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="d4115aab-1aa7-4ec0-b0f7-fb1b7f1ddf7e" data-domains="soterlabs.com"></script>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__wordmark"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
+      <button class="nav__mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/about" class="nav__link">About</a></li>
+        <li><a href="/values" class="nav__link">Values</a></li>
+        <li><a href="/services" class="nav__link">Services</a></li>
+        <li><a href="/clients" class="nav__link">Clients</a></li>
+        <li><a href="https://settle.soterlabs.com" target="_blank" rel="noopener" class="nav__link nav__link--ext">Console<sup>&nearr;</sup></a></li>
+        <li>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+            <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </button>
+        </li>
+        <li><a href="/contact" class="nav__cta">Get in touch &rarr;</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Page hero -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <p class="page-hero__kicker fade-in">Contact</p>
+      <h1 class="page-hero__title fade-in">Get in touch</h1>
+      <p class="page-hero__lede fade-in">Tell us about your organization and what you're navigating.</p>
+    </div>
+  </header>
+
+  <section class="section section--flush">
+    <div class="section__inner">
+      <div class="detail-card fade-in" style="max-width: 560px; margin: 0 auto; text-align: center; padding: var(--space-12) var(--space-8);">
+        <h3 class="detail-card__title">Email us</h3>
+        <p class="detail-card__body" style="margin-bottom: var(--space-8);">No forms, no queues &mdash; a person reads everything, and we respond fast.</p>
+        <a href="mailto:hello@soterlabs.com" class="btn" data-umami-event="contact-email-click">hello@soterlabs.com &rarr;</a>
+        <div class="profile-actions" style="margin-top: var(--space-8);">
+          <a href="https://x.com/soterlabs" target="_blank" rel="noopener" class="section-link">@soterlabs on X &rarr;</a>
+          <a href="https://github.com/soterlabs" target="_blank" rel="noopener" class="section-link">github.com/soterlabs &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="nav__wordmark"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
+        <p class="footer__tag">Trusted GovOps provider for the Sky Ecosystem. We make complex operations simple and opaque processes transparent.</p>
+        <p class="footer__copy">&copy; <span id="footer-year">2026</span> Soter Labs. All rights reserved.</p>
+      </div>
+      <nav class="footer__col footer__col--split" aria-label="Site">
+        <p class="footer__heading">Site</p>
+        <a href="/" class="footer__navlink">Home</a>
+        <a href="/about" class="footer__navlink">About</a>
+        <a href="/values" class="footer__navlink">Values</a>
+        <a href="/services" class="footer__navlink">Services</a>
+        <a href="/clients" class="footer__navlink">Clients</a>
+        <a href="/contact" class="footer__navlink">Contact</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__heading">Products</p>
+        <a href="https://settle.soterlabs.com" target="_blank" rel="noopener" class="footer__navlink">Soter Console &nearr;</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Connect</p>
+        <a href="mailto:hello@soterlabs.com" class="footer__navlink">hello@soterlabs.com</a>
+        <a href="https://x.com/soterlabs" target="_blank" rel="noopener" class="footer__navlink">X / Twitter</a>
+        <a href="https://github.com/soterlabs" target="_blank" rel="noopener" class="footer__navlink">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

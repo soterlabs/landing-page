@@ -1,0 +1,43 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '@fontsource/b612-mono/400.css';
+interface Props { title: string; description: string; active?: string; canonicalPath?: string; profile?: boolean; }
+const { title, description, active = '', canonicalPath = Astro.url.pathname, profile = false } = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={profile ? 'profile' : 'website'} />
+    <meta property="og:image" content="https://soterlabs.com/assets/images/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://soterlabs.com/assets/images/og-card.jpg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260716.7" />
+    <script is:inline>(function(){var s=localStorage.getItem('theme');var l=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches;document.documentElement.setAttribute('data-theme',s||(l?'light':'dark'));})();</script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="d4115aab-1aa7-4ec0-b0f7-fb1b7f1ddf7e" data-domains="soterlabs.com"></script>
+  </head>
+  <body>
+    <Nav active={active} />
+    <main><slot /></main>
+    <Footer />
+    <script is:inline src="/assets/js/main.js"></script>
+    <slot name="scripts" />
+  </body>
+</html>

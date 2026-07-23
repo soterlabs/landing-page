@@ -1,0 +1,55 @@
+---
+import { proofMetrics } from '../data/site';
+---
+  <section class="section trust instrument-section" id="sky">
+    <div class="section__inner">
+      <p class="section__eyebrow fade-in">At scale</p>
+      <h2 class="section__label fade-in">Proof of Work</h2>
+    </div>
+    <div class="marquee fade-in">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <a class="marquee__item marquee__item--logo" href="https://www.skyeco.com/" target="_blank" rel="noopener"><img src="/assets/images/sky.svg" alt="">Sky Ecosystem</a>
+          <a class="marquee__item marquee__item--logo" href="https://obex.xyz/" target="_blank" rel="noopener"><img src="/assets/images/obex.jpg" alt="" class="is-avatar">Obex</a>
+          <a class="marquee__item marquee__item--logo" href="https://sky.money/" target="_blank" rel="noopener"><img src="/assets/images/sky.svg" alt="">Skybase</a>
+          <span class="marquee__item">Pattern</span>
+          <a class="marquee__item marquee__item--logo" href="https://osero.org/" target="_blank" rel="noopener"><img src="/assets/images/osero.jpg" alt="" class="is-avatar">Osero</a>
+          <span class="marquee__item">Launch Agent 7</span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <a class="marquee__item marquee__item--logo" href="https://www.skyeco.com/" target="_blank" rel="noopener"><img src="/assets/images/sky.svg" alt="">Sky Ecosystem</a>
+          <a class="marquee__item marquee__item--logo" href="https://obex.xyz/" target="_blank" rel="noopener"><img src="/assets/images/obex.jpg" alt="" class="is-avatar">Obex</a>
+          <a class="marquee__item marquee__item--logo" href="https://sky.money/" target="_blank" rel="noopener"><img src="/assets/images/sky.svg" alt="">Skybase</a>
+          <span class="marquee__item">Pattern</span>
+          <a class="marquee__item marquee__item--logo" href="https://osero.org/" target="_blank" rel="noopener"><img src="/assets/images/osero.jpg" alt="" class="is-avatar">Osero</a>
+          <span class="marquee__item">Launch Agent 7</span>
+        </div>
+      </div>
+    </div>
+    <div class="marquee marquee--reverse fade-in">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">Sky Frontier Foundation</span>
+          <a class="marquee__item marquee__item--logo" href="https://spark.fi" target="_blank" rel="noopener"><img src="/assets/images/spark.svg" alt="">Spark</a>
+          <a class="marquee__item marquee__item--logo" href="https://www.grove.finance/" target="_blank" rel="noopener"><img src="/assets/images/grove.jpg" alt="" class="is-avatar">Grove</a>
+          <a class="marquee__item marquee__item--logo" href="https://keel.fi/" target="_blank" rel="noopener"><img src="/assets/images/keel.png" alt="" class="is-avatar">Keel</a>
+          <span class="marquee__item">Ozone OEA</span>
+          <span class="marquee__item">Amatsu OEA</span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <span class="marquee__item">Sky Frontier Foundation</span>
+          <a class="marquee__item marquee__item--logo" href="https://spark.fi" target="_blank" rel="noopener"><img src="/assets/images/spark.svg" alt="">Spark</a>
+          <a class="marquee__item marquee__item--logo" href="https://www.grove.finance/" target="_blank" rel="noopener"><img src="/assets/images/grove.jpg" alt="" class="is-avatar">Grove</a>
+          <a class="marquee__item marquee__item--logo" href="https://keel.fi/" target="_blank" rel="noopener"><img src="/assets/images/keel.png" alt="" class="is-avatar">Keel</a>
+          <span class="marquee__item">Ozone OEA</span>
+          <span class="marquee__item">Amatsu OEA</span>
+        </div>
+      </div>
+    </div>
+    <div class="section__inner">
+      <dl class="trust__metrics fade-in" aria-label="Soter operating coverage across Sky">
+        {proofMetrics.map((metric) => <div><dt>{metric.value}</dt><dd>{metric.label}</dd></div>)}
+      </dl>
+      <div class="section--center trust__action fade-in"><a href="/clients" class="section-link">Explore the operating system &rarr;</a></div>
+    </div>
+  </section>

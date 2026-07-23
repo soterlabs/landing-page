@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services · Soter Labs</title>
+  <meta name="description" content="GovOps for live agents and Agent Incubation for ecosystems — governance operations run end to end.">
+  <meta property="og:title" content="Services · Soter Labs">
+  <meta property="og:description" content="GovOps for live agents and Agent Incubation for ecosystems — governance operations run end to end.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://soterlabs.com/assets/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://soterlabs.com/assets/images/og-card.jpg">
+  <meta property="og:url" content="https://soterlabs.com/services">
+  <link rel="canonical" href="https://soterlabs.com/services">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = stored || (prefersLight ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="d4115aab-1aa7-4ec0-b0f7-fb1b7f1ddf7e" data-domains="soterlabs.com"></script>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__wordmark"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
+      <button class="nav__mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/about" class="nav__link">About</a></li>
+        <li><a href="/values" class="nav__link">Values</a></li>
+        <li><a href="/services" class="nav__link nav__link--active">Services</a></li>
+        <li><a href="/clients" class="nav__link">Clients</a></li>
+        <li><a href="https://settle.soterlabs.com" target="_blank" rel="noopener" class="nav__link nav__link--ext">Console<sup>&nearr;</sup></a></li>
+        <li>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+            <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </button>
+        </li>
+        <li><a href="/contact" class="nav__cta">Get in touch &rarr;</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page hero -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <p class="page-hero__kicker fade-in">Services</p>
+      <h1 class="page-hero__title fade-in">What we offer</h1>
+      <p class="page-hero__lede fade-in">Five functions, one standard: operations run like critical infrastructure.</p>
+    </div>
+  </header>
+
+  <!-- Service console -->
+  <section class="section section--flush" id="console">
+    <div class="section__inner">
+      <div class="console fade-in">
+        <div class="console__dial-wrap">
+          <div class="dial" aria-hidden="true">
+            <div class="dial__needle" id="dial-needle"></div>
+            <div class="dial__hub"><img src="/assets/images/logo_wo_name_transparent.png" alt=""></div>
+          </div>
+          <button type="button" class="dial__label is-active" data-svc="govops" style="--a: 0deg; --shift: 0%;">GovOps</button>
+          <button type="button" class="dial__label" data-svc="auditing" style="--a: 72deg; --shift: 50%;">Auditing</button>
+          <button type="button" class="dial__label" data-svc="onchain" style="--a: 144deg; --shift: 50%;">Onchain Operations</button>
+          <button type="button" class="dial__label" data-svc="technical" style="--a: 216deg; --shift: -50%;">Technical Assistance</button>
+          <button type="button" class="dial__label" data-svc="program" style="--a: 288deg; --shift: -50%;">Program Management</button>
+        </div>
+        <div class="console__stage" id="console-stage" aria-live="polite">
+          <p class="console__eyebrow" id="stage-eyebrow">For live agents</p>
+          <h2 class="console__title" id="stage-title">GovOps</h2>
+          <p class="console__lede" id="stage-lede">Governance run end to end &mdash; the cycle never slips.</p>
+          <ul class="check-list" id="stage-list">
+              <li>Biweekly spell cycles, crafted and shipped</li>
+              <li>Proposal and vote lifecycle management</li>
+              <li>Atlas compliance on every change</li>
+              <li>Cycle reporting stakeholders can audit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="nav__wordmark"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs logo">Soter <span>Labs</span></a>
+        <p class="footer__tag">Trusted GovOps provider for the Sky Ecosystem. We make complex operations simple and opaque processes transparent.</p>
+        <p class="footer__copy">&copy; <span id="footer-year">2026</span> Soter Labs. All rights reserved.</p>
+      </div>
+      <nav class="footer__col footer__col--split" aria-label="Site">
+        <p class="footer__heading">Site</p>
+        <a href="/" class="footer__navlink">Home</a>
+        <a href="/about" class="footer__navlink">About</a>
+        <a href="/values" class="footer__navlink">Values</a>
+        <a href="/services" class="footer__navlink">Services</a>
+        <a href="/clients" class="footer__navlink">Clients</a>
+        <a href="/contact" class="footer__navlink">Contact</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__heading">Products</p>
+        <a href="https://settle.soterlabs.com" target="_blank" rel="noopener" class="footer__navlink">Soter Console &nearr;</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Connect</p>
+        <a href="mailto:hello@soterlabs.com" class="footer__navlink">hello@soterlabs.com</a>
+        <a href="https://x.com/soterlabs" target="_blank" rel="noopener" class="footer__navlink">X / Twitter</a>
+        <a href="https://github.com/soterlabs" target="_blank" rel="noopener" class="footer__navlink">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+
+  <script>
+    (function () {
+      var DATA = {
+  "govops": {
+    "tag": "For live agents",
+    "name": "GovOps",
+    "lede": "Governance run end to end &mdash; the cycle never slips.",
+    "items": [
+      "Biweekly spell cycles, crafted and shipped",
+      "Proposal and vote lifecycle management",
+      "Atlas compliance on every change",
+      "Cycle reporting stakeholders can audit"
+    ],
+    "angle": 0
+  },
+  "auditing": {
+    "tag": "Independent verification",
+    "name": "Auditing",
+    "lede": "Numbers verified, processes proven, paper trails published.",
+    "items": [
+      "Settlement cycle audits and calculations",
+      "Capital and position verification",
+      "Process and controls review",
+      "Public, auditable reports"
+    ],
+    "angle": 72
+  },
+  "onchain": {
+    "tag": "Execution layer",
+    "name": "Onchain Operations",
+    "lede": "Deployments, transactions, and monitoring &mdash; handled.",
+    "items": [
+      "Spell and contract deployment",
+      "Multisig and transaction coordination",
+      "Monitoring and alerting on live systems",
+      "Incident response when it counts"
+    ],
+    "angle": 144
+  },
+  "technical": {
+    "tag": "SME on demand",
+    "name": "Technical Assistance",
+    "lede": "Subject-matter depth on demand, from scoping to emergency.",
+    "items": [
+      "Technical scoping and review",
+      "Integration and migration support",
+      "Architecture and risk consultation",
+      "Rapid response engineering"
+    ],
+    "angle": 216
+  },
+  "program": {
+    "tag": "Delivery",
+    "name": "Program Management",
+    "lede": "Cross-team delivery on cadence &mdash; status you never chase.",
+    "items": [
+      "Cross-team coordination and cadence",
+      "Milestones, timelines, and dependencies",
+      "Status pushed before it&rsquo;s asked",
+      "Delivery accountable to outcomes"
+    ],
+    "angle": 288
+  }
+};
+      var ORDER = ['govops', 'auditing', 'onchain', 'technical', 'program'];
+      var needle = document.getElementById('dial-needle');
+      var stage = document.getElementById('console-stage');
+      var labels = document.querySelectorAll('.dial__label');
+      var current = 'govops';
+      var needleDeg = 0;
+
+      function selectService(id) {
+        var d = DATA[id];
+        if (!d || id === current) return;
+        current = id;
+        // rotate the needle along the shortest arc
+        var targetMod = d.angle % 360;
+        var currentMod = ((needleDeg % 360) + 360) % 360;
+        var delta = targetMod - currentMod;
+        if (delta > 180) delta -= 360;
+        if (delta < -180) delta += 360;
+        needleDeg += delta;
+        needle.style.transform = 'rotate(' + needleDeg + 'deg)';
+
+        labels.forEach(function (b) {
+          b.classList.toggle('is-active', b.getAttribute('data-svc') === id);
+        });
+
+        document.getElementById('stage-eyebrow').innerHTML = d.tag;
+        document.getElementById('stage-title').innerHTML = d.name;
+        document.getElementById('stage-lede').innerHTML = d.lede;
+        document.getElementById('stage-list').innerHTML = d.items.map(function (it) {
+          return '<li>' + it + '</li>';
+        }).join('');
+
+        stage.classList.remove('swap');
+        void stage.offsetWidth;
+        stage.classList.add('swap');
+      }
+
+      labels.forEach(function (b) {
+        b.addEventListener('click', function () { selectService(b.getAttribute('data-svc')); });
+      });
+
+      // deep links: /services#auditing selects and scrolls to the console
+      var hash = location.hash.replace('#', '');
+      if (DATA[hash]) {
+        selectService(hash);
+        setTimeout(function () {
+          document.getElementById('console').scrollIntoView({ block: 'center' });
+        }, 60);
+      }
+      window.addEventListener('hashchange', function () {
+        var h = location.hash.replace('#', '');
+        if (DATA[h]) selectService(h);
+      });
+    })();
+  </script>
+
+
+</body>
+</html>

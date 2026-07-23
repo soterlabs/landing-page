@@ -1,7 +1,20 @@
 {
   "name": "soterlabs-landing",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "test:orbit": "node --test tests/orbit-math.test.mjs",
+    "preview": "astro preview"
+  },
   "dependencies": {
+    "@fontsource/b612": "^5.2.7",
+    "@fontsource/b612-mono": "^5.2.7",
+    "astro": "^7.0.9",
     "serve": "^14.0.0"
   }
 }

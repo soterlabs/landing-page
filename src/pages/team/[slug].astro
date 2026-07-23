@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { team, type TeamMember } from '../../data/team';
+export function getStaticPaths() { return team.map((member) => ({ params: { slug: member.slug }, props: { member } })); }
+interface Props { member: TeamMember; }
+const { member } = Astro.props;
+---
+<BaseLayout title={`${member.name} · Soter Labs`} description={`${member.name}, ${member.role} at Soter Labs.`} active="about" canonicalPath={`/team/${member.slug}`} profile>
+  <header class="page-hero page-hero--apparatus"><div class="page-hero__inner"><div class="profile-avatar fade-in">{member.initial}<img src={member.avatar} alt="" onerror="this.remove()" /></div><p class="page-hero__kicker fade-in">{member.role}</p><h1 class="page-hero__title fade-in">{member.name}</h1><p class="page-hero__lede fade-in">{member.mandate}</p><div class="profile-actions fade-in">{member.email && <a href={`mailto:${member.email}`} class="section-link">{member.email} →</a>}{member.booking && <a href={member.booking} target="_blank" rel="noopener" class="section-link">Book a call →</a>}</div></div></header>
+  <section class="section section--flush signature-stage"><div class="section__inner"><div class="profile-rows fade-in"><div class="profile-row"><span class="profile-row__term">Operates</span><span class="profile-row__desc">{member.operates}</span></div><div class="profile-row"><span class="profile-row__term">Builds</span><span class="profile-row__desc">{member.builds}</span></div><div class="profile-row"><span class="profile-row__term">Directs</span><span class="profile-row__desc">{member.directs}</span></div></div></div></section>
+  {member.bio.length > 0 && <section class="section"><div class="section__inner"><h2 class="section__label fade-in">Background</h2><div class="prose fade-in">{member.bio.map((paragraph) => <p>{paragraph}</p>)}</div></div></section>}
+  <section class="section section--center section--flush"><div class="section__inner"><a href="/about" class="section-link">← Back to the team</a></div></section>
+  <script slot="scripts" is:inline>(function(){var b=document.querySelector('.profile-copy');if(!b)return;b.addEventListener('click',function(){navigator.clipboard.writeText(b.dataset.copy).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy profile link';},1600);});});})();</script>
+</BaseLayout>

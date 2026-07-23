@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ClientMarquee from '../components/ClientMarquee.astro';
+import { services } from '../data/site';
+
+// Force two-line rendering for these service names in the homepage list only.
+// The shared `name` stays plain text so the /services dial is unaffected.
+const nameLines: Record<string, string> = {
+  process: 'Process<br>Design',
+  infrastructure: 'On/Offchain<br>Infra',
+};
+---
+<BaseLayout title="Soter Labs · Trusted GovOps provider for the Sky Ecosystem" description="Trusted GovOps provider for the Sky Ecosystem. Soter Labs runs spell cycles, capital monitoring, Atlas compliance, and deployment coordination end to end.">
+  <section class="hero hero--apparatus" id="hero">
+    <div class="hero__apparatus-frame" aria-hidden="true"></div>
+    <div class="hero__halo-wrap" aria-hidden="true">
+      <div class="hero__halo-glow"></div><div class="hero__halo-glow-accent"></div>
+      <svg class="hero-orbit-scene" data-hero-orbit-scene viewBox="0 0 800 800" role="presentation" focusable="false">
+        <defs>
+          <radialGradient id="hero-star-field" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fffbea" stop-opacity="0.98"></stop>
+            <stop offset="13%" stop-color="#f4dda0" stop-opacity="0.86"></stop>
+            <stop offset="38%" stop-color="#c5a55a" stop-opacity="0.34"></stop>
+            <stop offset="72%" stop-color="#8d7132" stop-opacity="0.08"></stop>
+            <stop offset="100%" stop-color="#8d7132" stop-opacity="0"></stop>
+          </radialGradient>
+          <filter id="hero-star-blur" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="18"></feGaussianBlur>
+          </filter>
+          <filter id="hero-body-glow" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="3.2"></feGaussianBlur>
+          </filter>
+          <filter id="hero-event-glow" x="-180%" y="-180%" width="460%" height="460%">
+            <feGaussianBlur stdDeviation="2.2"></feGaussianBlur>
+          </filter>
+        </defs>
+        <g class="hero-orbit-scene__paths hero-orbit-scene__paths--back" data-orbit-back></g>
+        <g class="hero-orbit-scene__bodies hero-orbit-scene__bodies--back" data-body-back></g>
+        <g class="hero-orbit-scene__events hero-orbit-scene__events--back" data-event-back></g>
+        <g class="hero-orbit-star" data-orbit-star>
+          <circle class="hero-orbit-star__field" cx="400" cy="400" r="190" fill="url(#hero-star-field)"></circle>
+          <circle class="hero-orbit-star__bloom" cx="400" cy="400" r="82" fill="#f2d98f" filter="url(#hero-star-blur)"></circle>
+        </g>
+        <g class="hero-orbit-scene__paths hero-orbit-scene__paths--front" data-orbit-front></g>
+        <g class="hero-orbit-scene__bodies hero-orbit-scene__bodies--front" data-body-front></g>
+        <g class="hero-orbit-scene__events hero-orbit-scene__events--front" data-event-front></g>
+      </svg>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__tagline fade-in">Trusted GovOps provider for the<br /><a href="https://www.skyeco.com/" target="_blank" rel="noopener">Sky Ecosystem</a></h1>
+      <p class="hero__subtitle fade-in">We make complex operations simple and opaque processes&nbsp;transparent.</p>
+      <div class="hero__actions fade-in"><a href="/services" class="hero__cta">Explore Services</a></div>
+    </div>
+  </section>
+
+  <ClientMarquee />
+
+  <section class="section services instrument-section" id="capabilities">
+    <div class="section__inner">
+      <div class="homepage-section-head homepage-section-head--stacked fade-in">
+        <div><p class="section__eyebrow">What Soter does</p><h2 class="section__label">Services to simplify complex operations.</h2></div>
+        <p class="homepage-section-head__body">Soter delivers end-to-end operating capabilities.</p>
+      </div>
+      <div class="svc-index">{services.map((service) => <a class="svc-row fade-in" href={`/services#${service.id}`}><span class="svc-row__tag">{service.tag}</span>{nameLines[service.id] ? <span class="svc-row__name" set:html={nameLines[service.id]}></span> : <span class="svc-row__name">{service.name}</span>}<span class="svc-row__desc">{service.short}</span><span class="svc-row__arrow">→</span></a>)}</div>
+      <div class="section--center fade-in"><a href="/services" class="section-link">Explore Soter’s capabilities →</a></div>
+    </div>
+  </section>
+
+  <section class="section contact instrument-section" id="contact">
+    <div class="section__inner"><div class="contact__content fade-in"><p class="section__eyebrow">Tune up or rebuild</p><h2 class="section__label">What needs to run better?</h2><p class="contact__body">Bring us a recurring process, an operational mandate, a reporting gap, or a complex initiative. We’ll start by understanding the work and identifying where clearer systems can help.</p><a href="/contact" class="btn btn--instrument"><span>Start a conversation</span><span class="btn__arrow" aria-hidden="true">→</span></a></div></div>
+  </section>
+  <script slot="scripts" is:inline type="module" src="/assets/js/hero-orbit.js?v=20260723.6"></script>
+</BaseLayout>
