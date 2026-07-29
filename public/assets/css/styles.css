@@ -61,8 +61,13 @@
   --instrument-line: rgba(197, 165, 90, 0.14);
   --instrument-line-strong: rgba(197, 165, 90, 0.34);
   --instrument-grid: rgba(240, 235, 224, 0.035);
-  --orbit-line: rgba(197, 165, 90, 0.26);
-  --orbit-line-muted: rgba(240, 235, 224, 0.13);
+  /* Same weight as the about-page team rings, so orbits read alike sitewide. */
+  --orbit-line: var(--color-border-gold-hover);
+  --orbit-line-muted: var(--color-border-subtle-strong);
+  --logo-chip: rgba(30, 26, 20, 0.94);
+  /* Letterforms drawn straight onto a face. Light mode needs a deeper gold —
+     #C5A55A on the near-white face is only 2:1. */
+  --orrery-mark: var(--color-gold);
   --orbit-ozone-line: rgba(212, 185, 106, 0.68);
   --orbit-ozone-glow: rgba(197, 165, 90, 0.18);
 
@@ -117,10 +122,11 @@
   --instrument-line: rgba(120, 92, 38, 0.18);
   --instrument-line-strong: rgba(120, 92, 38, 0.4);
   --instrument-grid: rgba(30, 30, 30, 0.045);
-  --orbit-line: rgba(100, 76, 34, 0.32);
-  --orbit-line-muted: rgba(70, 54, 30, 0.22);
-  --orbit-ozone-line: rgba(125, 88, 20, 0.72);
-  --orbit-ozone-glow: rgba(160, 130, 60, 0.16);
+  --orbit-line: var(--color-border-gold-hover);
+  --orbit-line-muted: var(--color-border-subtle-strong);
+  --orbit-ozone-line: rgba(84, 58, 10, 0.9);
+  --orbit-ozone-glow: rgba(140, 110, 45, 0.2);
+  --orrery-mark: #7A5E1E;
 
   color-scheme: light;
 }
@@ -804,13 +810,15 @@ body::after {
   text-align: center;
 }
 
+/* Small uppercase labels are muted everywhere; gold is reserved for headings.
+   Same rule as .page-hero__kicker — keep the two in step. */
 .section__eyebrow {
   font-family: var(--font-display);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-text-on-dark-muted);
   margin-bottom: var(--space-3);
   text-align: center;
 }
@@ -858,6 +866,8 @@ body::after {
 
 .section-intro--split {
   text-align: left;
+  /* Heading sits level with its body copy, not baselined to the bottom of it. */
+  align-items: center;
 }
 
 .section-intro--split .section__eyebrow,
@@ -1946,6 +1956,13 @@ button:focus-visible {
   mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
 }
 
+/* Opt a page out of the apparatus grid: keep the frame and the centre glow,
+   drop the ruled lines. Pair with .signature-stage--nogrid on its sections. */
+.page-hero--nogrid.page-hero--apparatus::before {
+  background-image: radial-gradient(circle at 50% 55%, rgba(197, 165, 90, 0.09), transparent 45%);
+  background-size: auto;
+}
+
 .page-hero__inner {
   position: relative;
   z-index: 1;
@@ -1997,6 +2014,11 @@ button:focus-visible {
     linear-gradient(90deg, var(--instrument-grid) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
+}
+
+/* Pairs with .page-hero--nogrid: same opt-out, section side. */
+.signature-stage--nogrid {
+  background-image: none;
 }
 
 /* Let an internal record rail stick to the viewport, then release with its section. */
@@ -2244,9 +2266,9 @@ button:focus-visible {
 
 /* ── Team orbit ── */
 .team-orbit {
-  --orbit-r: clamp(150px, 36vw, 300px);
+  --orbit-r: clamp(140px, 36vw, 340px);
   position: relative;
-  width: min(720px, 94vw);
+  width: min(820px, 94vw);
   height: calc(var(--orbit-r) * 0.9 + 160px);
   margin: var(--space-6) auto var(--space-12);
 }
@@ -2264,26 +2286,13 @@ button:focus-visible {
   pointer-events: none;
 }
 
-.team-orbit__ring-decor {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(var(--orbit-r) * 2.3);
-  height: calc(var(--orbit-r) * 2.3);
-  margin-top: calc(var(--orbit-r) * -1.15);
-  margin-left: calc(var(--orbit-r) * -1.15);
-  border-radius: 50%;
-  border: 1px solid var(--halo-ring-2);
-  transform: rotateX(70deg) rotateZ(0deg);
-  animation: ring-rotate-1 45s linear infinite;
-  pointer-events: none;
-}
-
+/* Two orbits only. Each ring's transform mirrors its `rings` entry in
+   team-orbit.js — rotate() is phi, scaleY() is squash. Keep them in sync. */
 .team-orbit__ring-flat {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: scaleY(0.42);
+  transform: rotate(5deg) scaleY(0.42);
   width: calc(var(--orbit-r) * 2);
   height: calc(var(--orbit-r) * 2);
   margin-top: calc(var(--orbit-r) * -1);
@@ -2385,12 +2394,6 @@ button:focus-visible {
 
 .team-orbit__avatar:hover .team-orbit__name {
   color: var(--color-gold);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .team-orbit__ring-decor {
-    animation: none;
-  }
 }
 
 /* ── Profile (person pages + modal) ── */
@@ -2675,7 +2678,7 @@ button:focus-visible {
   margin-top: calc(var(--orbit-r) * -0.62);
   margin-left: calc(var(--orbit-r) * -0.62);
   border-color: var(--color-border-subtle-strong);
-  transform: rotate(-16deg) scaleY(0.55);
+  transform: rotate(-18deg) scaleY(0.55);
 }
 
 @media (max-width: 600px) {
@@ -3123,7 +3126,7 @@ button:focus-visible {
   font-family: var(--font-display);
   font-size: 24px;
   font-weight: 600;
-  color: var(--color-gold);
+  color: var(--orrery-mark);
   box-shadow: 0 0 26px rgba(197, 165, 90, 0.18);
 }
 
@@ -3133,7 +3136,7 @@ button:focus-visible {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-gold);
+  color: var(--orrery-mark);
 }
 
 .orrery__face--img {
@@ -3150,6 +3153,13 @@ button:focus-visible {
 .orrery__face--wordmark img {
   width: 72%;
   height: auto;
+}
+
+/* Brand marks ship light-on-transparent (sky.svg is fill="white"), so their
+   chip stays dark in both themes. On the light surface they vanish entirely. */
+.orrery__sun-core,
+.orrery__face--wordmark {
+  background: var(--logo-chip);
 }
 
 .orrery__body--pending .orrery__face {
@@ -3775,15 +3785,6 @@ button:focus-visible {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.console__eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  margin-bottom: var(--space-4);
-}
-
 .console__title {
   font-family: var(--font-display);
   font-size: clamp(32px, 4.4vw, 52px);
@@ -3895,11 +3896,6 @@ button:focus-visible {
     min-width: 0;
     padding-left: 12px;
     border-left: 1px solid var(--instrument-line-strong);
-  }
-
-  .console__eyebrow {
-    margin-bottom: var(--space-3);
-    font-size: 8px;
   }
 
   .console__title {
@@ -5175,6 +5171,7 @@ a.marquee__item:hover {
     linear-gradient(180deg, transparent, rgba(46, 40, 32, 0.09));
 }
 
+
 .about-hero .page-hero__inner {
   width: 100%;
   max-width: 1200px;
@@ -5216,7 +5213,7 @@ a.marquee__item:hover {
 }
 
 .about-hero__visible {
-  display: inline-block;
+  display: block;
   color: var(--color-gold-light);
 }
 
@@ -5235,7 +5232,6 @@ a.marquee__item:hover {
 
 .about-router {
   position: relative;
-  min-height: 440px;
   overflow: hidden;
   border-top: 1px solid var(--instrument-line-strong);
   border-bottom: 1px solid var(--instrument-line-strong);
@@ -5271,13 +5267,7 @@ a.marquee__item:hover {
 .about-router__map {
   display: block;
   width: 100%;
-  height: 310px;
-}
-
-.about-router__grid {
-  fill: none;
-  stroke: var(--instrument-grid);
-  stroke-width: 1;
+  height: auto;
 }
 
 .about-router__route {
@@ -5355,15 +5345,10 @@ a.marquee__item:hover {
 
 .name-origin__instrument {
   position: relative;
-  min-height: 470px;
   overflow: hidden;
   border-top: 1px solid var(--instrument-line-strong);
   border-bottom: 1px solid var(--instrument-line-strong);
-  background:
-    linear-gradient(var(--instrument-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--instrument-grid) 1px, transparent 1px),
-    var(--bg-surface-alt);
-  background-size: 100% 42px, 10% 100%, auto;
+  background: var(--bg-surface-alt);
 }
 
 .name-origin__header {
@@ -5385,16 +5370,8 @@ a.marquee__item:hover {
   z-index: 2;
   display: block;
   width: 100%;
-  height: 420px;
+  height: auto;
   overflow: visible;
-}
-
-.protocol-map__grid {
-  fill: none;
-  stroke: var(--instrument-grid);
-  stroke-width: 0.8;
-  opacity: 0.7;
-  vector-effect: non-scaling-stroke;
 }
 
 .protocol-map__route {
@@ -5582,9 +5559,6 @@ a.marquee__item:hover {
     gap: var(--space-8);
   }
 
-  .name-origin__instrument {
-    min-height: 390px;
-  }
 
   .name-origin__copy {
     max-width: 680px;
@@ -5593,6 +5567,7 @@ a.marquee__item:hover {
 }
 
 @media (max-width: 768px) {
+  /* protocol-map + about-router scale with their width, so no height overrides. */
   .nav__dashboard {
     display: flex;
     width: 100%;
@@ -5604,14 +5579,6 @@ a.marquee__item:hover {
 
   .name-origin {
     min-height: 0;
-  }
-
-  .name-origin__instrument {
-    min-height: 0;
-  }
-
-  .protocol-map {
-    height: 340px;
   }
 }
 
@@ -5625,14 +5592,6 @@ a.marquee__item:hover {
     font-size: clamp(22px, 7.2vw, 34px);
   }
 
-  .about-router {
-    min-height: 390px;
-  }
-
-  .about-router__map {
-    height: 260px;
-  }
-
   .name-origin__header {
     gap: var(--space-3);
     line-height: 1.35;
@@ -5640,10 +5599,6 @@ a.marquee__item:hover {
 
   .name-origin__header span:last-child {
     text-align: right;
-  }
-
-  .protocol-map {
-    height: 310px;
   }
 
   .protocol-map__node text {

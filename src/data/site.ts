@@ -42,13 +42,13 @@ export const services = [
   {
     id: 'reporting', angle: 216, tag: 'Visible outcomes', name: 'Reporting & Transparency',
     short: 'Operational detail translated into information people can use.',
-    lede: 'Validated operational detail made understandable to the people who depend on it.',
+    lede: 'Validated operational detail made actionable to the people who depend on it.',
     items: ['Operational and cycle reporting', 'Data validation and provenance', 'Executive summaries, exceptions, and next actions', 'Public or stakeholder-facing reporting layers'],
   },
   {
     id: 'delivery', angle: 288, tag: 'Cross-functional delivery', name: 'Program Incubation',
     short: 'Delivery for initiatives that do not fit neatly inside one team.',
-    lede: 'Complex programs, launches, and emerging agents coordinated from definition through delivery.',
+    lede: 'Complex programs, launches, and emerging needs coordinated from definition through delivery.',
     items: ['Program design and coordination', 'Milestones, timelines, and dependencies', 'Partner and stakeholder alignment', 'Launch, transformation, and incubation support'],
   },
 ] as const;

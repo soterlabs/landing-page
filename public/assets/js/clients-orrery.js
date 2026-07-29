@@ -7,10 +7,16 @@
       var TAU = Math.PI * 2;
       var target = 1, factor = 1, t = 0, last = null;
 
-      var SFF = {
-        el: document.getElementById('node-sff'), path: document.getElementById('path-sff'),
-        rf: 0.34, squash: 0.5, phi: rad(14), period: 52, dir: -1, phase: rad(120)
+      // Shared inner track. Add a FOUNDATION_BODIES entry (+ markup) to put
+      // another body on the same orbit; phases keep them apart.
+      var FOUNDATION = {
+        path: document.getElementById('path-sff'),
+        rf: 0.34, squash: 0.5, phi: rad(14), period: 52, dir: -1
       };
+      var FOUNDATION_BODIES = [
+        { el: document.getElementById('node-sff'), phase: rad(120) },
+        { el: document.getElementById('node-ccea'), phase: rad(300) }
+      ].filter(function (b) { return b.el; });
       // Delivered products: artificial satellites on tight orbits.
       // Add one entry (+ markup) per delivered thing.
       var SATS = [
@@ -47,7 +53,7 @@
       function sizePaths() {
         var edgeGutter = orrery.clientWidth < 600 ? 48 : 90;
         R = Math.min(orrery.clientWidth / 2 - edgeGutter, 355);
-        [[SFF.path, R * SFF.rf, SFF.squash, SFF.phi]].concat(
+        [[FOUNDATION.path, R * FOUNDATION.rf, FOUNDATION.squash, FOUNDATION.phi]].concat(
           SATS.map(function (st) { return [st.path, st.anchor ? st.r : R * st.rf, st.squash, st.phi]; })
         ).concat(
           Object.keys(SYSTEMS).map(function (k) {
@@ -89,12 +95,14 @@
 
       function place() {
         // Foundation: tight inner orbit
-        var a = SFF.phase + SFF.dir * t * TAU / SFF.period;
-        var p = orbitPos(R * SFF.rf, a, SFF.squash, SFF.phi);
-        var sc = 1 + 0.16 * p.d;
-        SFF.el.style.transform = 'translate(' + p.x.toFixed(2) + 'px,' + p.y.toFixed(2) + 'px) scale(' + sc.toFixed(3) + ')';
-        SFF.el.style.zIndex = String(100 + Math.round(p.d * 18));
-        SFF.el.style.opacity = (0.6 + 0.4 * (p.d + 1) / 2).toFixed(3);
+        FOUNDATION_BODIES.forEach(function (b) {
+          var a = b.phase + FOUNDATION.dir * t * TAU / FOUNDATION.period;
+          var p = orbitPos(R * FOUNDATION.rf, a, FOUNDATION.squash, FOUNDATION.phi);
+          var sc = 1 + 0.16 * p.d;
+          b.el.style.transform = 'translate(' + p.x.toFixed(2) + 'px,' + p.y.toFixed(2) + 'px) scale(' + sc.toFixed(3) + ')';
+          b.el.style.zIndex = String(100 + Math.round(p.d * 18));
+          b.el.style.opacity = (0.6 + 0.4 * (p.d + 1) / 2).toFixed(3);
+        });
 
         var anchors = {};
 

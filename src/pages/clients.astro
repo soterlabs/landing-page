@@ -2,15 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Soter at work across Sky · Soter Labs" description="Explore Soter’s work across the Sky Ecosystem, including direct mandates, Operational Executor Agents, serviced agents, infrastructure, incubation, and reporting." active="clients">
-  <header class="page-hero page-hero--apparatus">
+  <header class="page-hero page-hero--apparatus page-hero--nogrid">
     <div class="page-hero__inner">
       <p class="page-hero__kicker fade-in">Work · Sky Ecosystem</p>
-      <h1 class="page-hero__title fade-in">One of the most complex operating environments in onchain finance.</h1>
-      <p class="page-hero__lede fade-in">The Sky Ecosystem is the most complete example of Soter’s work today. The orbit below maps ecosystem-level relationships, Operational Executor Agents, serviced agents, and delivered systems that Soter helps operate.</p>
+      <h1 class="page-hero__title fade-in">Delivering Decentralized Operations</h1>
+      <p class="page-hero__lede fade-in">The Sky Ecosystem is the most complete example of Soter’s work today, delivering services to one of the most complex organizations in onchain finance.</p>
     </div>
   </header>
 
-  <section class="section section--flush signature-stage" id="proof">
+  <section class="section section--flush signature-stage signature-stage--nogrid" id="proof">
     <div class="section__inner">
       <div class="orrery fade-in" id="orrery">
         <div class="orrery__glow" aria-hidden="true"></div>
@@ -44,18 +44,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <a class="orrery__body" id="node-sff" data-client="sff" href="https://insights.skyeco.com/" target="_blank" rel="noopener" aria-label="Sky Frontier Foundation">
-          <span class="orrery__face orrery__face--initials">SF</span>
+          <span class="orrery__face orrery__face--initials">SFF</span>
           <span class="orrery__caption orrery__caption--hover">Sky Frontier Foundation</span>
         </a>
 
-        <div class="orrery__body" id="planet-ozone" data-client="ozone" tabindex="0" role="button" aria-label="Ozone OEA, driven by Soter Labs">
-          <span class="orrery__face orrery__face--planet">O</span>
-          <span class="orrery__caption">Ozone OEA<em>driven by Soter</em></span>
+        <div class="orrery__body" id="node-ccea" data-client="ccea" tabindex="0" role="button" aria-label="Core Council Executor Agent">
+          <span class="orrery__face orrery__face--initials">CC</span>
+          <span class="orrery__caption orrery__caption--hover">Core Council Executor Agent</span>
         </div>
 
-        <div class="orrery__body" id="planet-amatsu" data-client="amatsu" tabindex="0" role="button" aria-label="Amatsu OEA, driven by Soter Labs">
+        <div class="orrery__body" id="planet-ozone" data-client="ozone" tabindex="0" role="button" aria-label="Ozone OEA">
+          <span class="orrery__face orrery__face--planet">O</span>
+          <span class="orrery__caption">Ozone OEA</span>
+        </div>
+
+        <div class="orrery__body" id="planet-amatsu" data-client="amatsu" tabindex="0" role="button" aria-label="Amatsu OEA">
           <span class="orrery__face orrery__face--planet">A</span>
-          <span class="orrery__caption">Amatsu OEA<em>driven by Soter</em></span>
+          <span class="orrery__caption">Amatsu OEA</span>
         </div>
 
       <a class="orrery__body orrery__body--moon" data-sys="ozone" data-i="0" data-client="obex" href="https://obex.xyz/" target="_blank" rel="noopener">
@@ -120,6 +125,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="client-card__links">
         <a href="https://insights.skyeco.com/" target="_blank" rel="noopener" class="section-link">insights.skyeco.com &rarr;</a>
       </div>
+    </article>
+    <article class="client-card" id="card-ccea">
+      <p class="client-card__kicker">Operational Executor Agent</p>
+      <h3 class="client-card__name">Core Council Executor Agent</h3>
+      <p class="client-card__desc">An Operational Executor Agent in the Sky Ecosystem. Soter drives its recurring operational cycle, including governance execution, coordination, and reporting.</p>
     </article>
     <article class="client-card" id="card-ozone">
       <p class="client-card__kicker">Operational Executor Agent &middot; driven by Soter</p>
@@ -220,7 +230,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="client-index__group">Ecosystem</p>
       <button type="button" class="client-index__item" data-client="sky">Sky Ecosystem</button>
       <button type="button" class="client-index__item" data-client="sff">Sky Frontier Foundation</button>
-      <p class="client-index__group">Executors · driven by Soter</p>
+      <p class="client-index__group">Executors</p>
+      <button type="button" class="client-index__item" data-client="ccea">Core Council Executor Agent</button>
       <button type="button" class="client-index__item" data-client="ozone">Ozone OEA</button>
       <button type="button" class="client-index__item" data-client="amatsu">Amatsu OEA</button>
       <p class="client-index__group">Serviced via Ozone</p>

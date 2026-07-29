@@ -20,9 +20,10 @@
     sat.setAttribute('data-ring', slots[index].ring);
     sat.setAttribute('data-angle', slots[index].angle);
   });
+  // phi/squash must match the ring elements' transforms in styles.css.
   var rings = {
-    outer: { factor: 1, dir: 1, period: 100, squash: 0.42, phi: 0 },
-    inner: { factor: 0.62, dir: -1, period: 75, squash: 0.55, phi: -16 * Math.PI / 180 }
+    outer: { factor: 1, dir: 1, period: 100, squash: 0.42, phi: 5 * Math.PI / 180 },
+    inner: { factor: 0.62, dir: -1, period: 75, squash: 0.55, phi: -18 * Math.PI / 180 }
   };
   var t = 0;
   var factor = 1;

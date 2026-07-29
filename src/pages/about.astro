@@ -4,14 +4,10 @@ import { team } from '../data/team';
 const teamData = Object.fromEntries(team.map((person) => [person.slug, person]));
 ---
 <BaseLayout title="About Soter Labs · The systems behind complex operations" description="Learn why Soter exists and meet the team behind its operational systems, infrastructure, and reporting." active="about">
-  <header class="page-hero page-hero--apparatus about-hero">
+  <header class="page-hero page-hero--apparatus page-hero--nogrid about-hero">
     <div class="page-hero__inner about-hero__layout">
       <div class="about-router" aria-hidden="true">
         <svg class="about-router__map" viewBox="0 0 560 360" role="presentation">
-          <g class="about-router__grid">
-            <path d="M35 48H525M35 112H525M35 176H525M35 240H525M35 304H525" />
-            <path d="M95 28V330M190 28V330M285 28V330M380 28V330M475 28V330" />
-          </g>
           <g class="about-router__routes">
             <path class="about-router__route about-router__route--1" pathLength="1" d="M38 52C128 52 116 152 218 152S321 82 414 82H520" />
             <path class="about-router__route about-router__route--2" pathLength="1" d="M38 102C136 102 128 216 225 216S326 146 414 146H520" />
@@ -37,15 +33,15 @@ const teamData = Object.fromEntries(team.map((person) => [person.slug, person]))
       </div>
       <div class="about-hero__copy">
         <p class="page-hero__kicker">About Soter</p>
-        <h1 class="page-hero__title about-hero__title"><span>We make complex operations</span><span class="about-hero__outcomes">understandable. dependable. <span class="about-hero__visible" data-scroll-reveal>visible.</span></span></h1>
-        <p class="page-hero__lede">Soter Labs designs, builds, and runs the operational systems behind complex organizations, protocols, and ecosystems.</p>
+        <h1 class="page-hero__title about-hero__title"><span>We make complex operations</span><span class="about-hero__outcomes">understandable. dependable.<span class="about-hero__visible" data-scroll-reveal>visible.</span></span></h1>
+        <p class="page-hero__lede">Soter Labs designs, builds, and operates the systems behind complex protocols and ecosystems.</p>
       </div>
     </div>
   </header>
 
-  <section class="section section--center section--flush signature-stage about-team"><div class="section__inner"><p class="section__eyebrow fade-in">The people behind the systems</p><h2 class="section__label fade-in">Cross-functional by design.</h2><p class="team-intro fade-in">Complex mandates rarely fit inside one discipline. Soter brings operational, technical, governance, program, and ecosystem expertise around the work. Select a team member to understand their role.</p>
+  <section class="section section--center section--flush signature-stage signature-stage--nogrid about-team"><div class="section__inner"><p class="section__eyebrow fade-in">The people powering Soter</p><h2 class="section__label fade-in">Cross-functional by design.</h2><p class="team-intro fade-in">Complex mandates rarely fit inside one discipline. Soter delivers technical, governance, and decentralized coordination fueled by dynamic contributors.</p>
     <div class="team-orbit fade-in" aria-label="Soter Labs team">
-      <div class="team-orbit__halo"></div>{[1,2,3,4,5].map((i) => <div class={`team-orbit__particle team-orbit__particle--${i}`}></div>)}<div class="team-orbit__ring-decor"></div><div class="team-orbit__ring-flat"></div><div class="team-orbit__ring-flat team-orbit__ring-flat--inner"></div><div class="team-orbit__center"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs" /></div>
+      <div class="team-orbit__halo"></div>{[1,2,3,4,5].map((i) => <div class={`team-orbit__particle team-orbit__particle--${i}`}></div>)}<div class="team-orbit__ring-flat"></div><div class="team-orbit__ring-flat team-orbit__ring-flat--inner"></div><div class="team-orbit__center"><img src="/assets/images/logo_wo_name_transparent.png" alt="Soter Labs" /></div>
       {team.map((person) => <a href={`/team/${person.slug}`} class="team-orbit__avatar" data-team-link data-angle={person.angle} data-ring={person.ring} aria-label={`${person.name}, ${person.role}`}><span class="team-orbit__face">{person.initial}<img src={person.avatar} alt="" loading="lazy" onerror="this.remove()" /></span><span class="team-orbit__name">{person.name}</span></a>)}
     </div>
   </div></section>
@@ -54,10 +50,7 @@ const teamData = Object.fromEntries(team.map((person) => [person.slug, person]))
     <div class="section__inner name-origin__grid">
       <div class="name-origin__instrument name-origin__system fade-in" aria-hidden="true">
         <div class="name-origin__header"><span>Intent → execute → evidence</span></div>
-        <svg class="protocol-map" viewBox="0 0 640 420" role="presentation">
-          <g class="protocol-map__grid">
-            <path d="M20 70H620M20 150H620M20 230H620M20 310H620M120 34V386M240 34V386M360 34V386M480 34V386M600 34V386" />
-          </g>
+        <svg class="protocol-map" viewBox="0 6 640 390" role="presentation">
           <g class="protocol-map__routes">
             <path class="protocol-map__route protocol-map__draw" style="--draw-index: 0" pathLength="1" d="M140 82C166 82 154 147 180 147" />
             <path class="protocol-map__route protocol-map__draw" style="--draw-index: 1" pathLength="1" d="M140 172C160 172 160 147 180 147" />
@@ -90,9 +83,8 @@ const teamData = Object.fromEntries(team.map((person) => [person.slug, person]))
       <div class="name-origin__copy fade-in">
         <p class="section__eyebrow">The meaning behind the name</p>
         <h2 class="section__label">Built to preserve what matters.</h2>
-        <p>Soter comes from the Ancient Greek <em>sōtēr</em>: savior, deliverer, preserver—a title associated with protection and practical deliverance.</p>
-        <p>That meaning lives in the work: protect the integrity of important operations by making expectations clear, ownership visible, execution dependable, and outcomes understandable.</p>
-        <p>The name gives us a purpose, not a mythology. Protection is expressed through the systems we build and the care with which we run them.</p>
+        <p>The term Soter is a title associated with figures who deliver protection and relief. That meaning lives in our work: protect the integrity of systems by making expectations clear, ownership visible, execution dependable, and outcomes understandable.</p>
+        <p>The name gives us purpose and a standard. It also gives our clients and collaborators accountable expectations.</p>
       </div>
     </div>
   </section>
@@ -110,5 +102,5 @@ const teamData = Object.fromEntries(team.map((person) => [person.slug, person]))
     </div>
   </div>
   <script id="team-data" type="application/json" set:html={JSON.stringify(teamData)}></script>
-  <script slot="scripts" is:inline src="/assets/js/team-orbit.js?v=20260723.4"></script>
+  <script slot="scripts" is:inline src="/assets/js/team-orbit.js?v=20260729.1"></script>
 </BaseLayout>
